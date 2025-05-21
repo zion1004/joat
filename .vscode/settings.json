@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "swordrun.sln"
+    "dotnet.defaultSolution": "joat.sln"
 }
