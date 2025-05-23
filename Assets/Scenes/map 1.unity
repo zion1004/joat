@@ -982,6 +982,10 @@ PrefabInstance:
       value: under_Snowman_02
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 554244d10c03dfe46978dfa5b2bcb86d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 554244d10c03dfe46978dfa5b2bcb86d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2357,6 +2361,10 @@ PrefabInstance:
       value: under_Snowman1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0d4a86e90e3db4d4e9653da0fcafabb4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0d4a86e90e3db4d4e9653da0fcafabb4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3079,7 +3087,7 @@ GameObject:
   - component: {fileID: 125743798}
   - component: {fileID: 125743797}
   - component: {fileID: 125743796}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stage2_Snowman1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4219,6 +4227,10 @@ PrefabInstance:
       value: upper_icicle2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e3d7e8444339b844c8af8d847c98aac8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e3d7e8444339b844c8af8d847c98aac8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -4940,6 +4952,10 @@ PrefabInstance:
       value: upper_IceTree
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b27da4bb2b45b6f488c7545482c47343, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b27da4bb2b45b6f488c7545482c47343, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -5022,6 +5038,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7f4587507fb3718498c601625ac16dfe, type: 3}
       propertyPath: m_Name
       value: left_icicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f4587507fb3718498c601625ac16dfe, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f4587507fb3718498c601625ac16dfe, type: 3}
       propertyPath: m_IsActive
@@ -8909,7 +8929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 434319176}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Destroyable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9006,6 +9026,10 @@ PrefabInstance:
       value: upper_IceTree
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b27da4bb2b45b6f488c7545482c47343, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b27da4bb2b45b6f488c7545482c47343, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -9039,7 +9063,7 @@ GameObject:
   - component: {fileID: 438832867}
   - component: {fileID: 438832866}
   - component: {fileID: 438832865}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stage2_Snowman3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11022,7 +11046,7 @@ GameObject:
   - component: {fileID: 538071030}
   - component: {fileID: 538071029}
   - component: {fileID: 538071028}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stage2_Snowman4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11349,6 +11373,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 58f6bc85945cf874fa1d55954fad9b4c, type: 3}
       propertyPath: m_Name
       value: right_icicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 58f6bc85945cf874fa1d55954fad9b4c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 58f6bc85945cf874fa1d55954fad9b4c, type: 3}
       propertyPath: m_IsActive
@@ -11962,6 +11990,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 554244d10c03dfe46978dfa5b2bcb86d, type: 3}
       propertyPath: m_Name
       value: under_Snowman_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 554244d10c03dfe46978dfa5b2bcb86d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 554244d10c03dfe46978dfa5b2bcb86d, type: 3}
       propertyPath: m_IsActive
@@ -13647,7 +13679,7 @@ GameObject:
   - component: {fileID: 708443798}
   - component: {fileID: 708443797}
   - component: {fileID: 708443796}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stage2_IceTree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15645,7 +15677,7 @@ GameObject:
   - component: {fileID: 798589579}
   - component: {fileID: 798589578}
   - component: {fileID: 798589577}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stage2_Icicle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15947,6 +15979,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 648bbcdaacb4bca4b881a42e0d04df3c, type: 3}
       propertyPath: m_Name
       value: upper_Snowman_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 648bbcdaacb4bca4b881a42e0d04df3c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 648bbcdaacb4bca4b881a42e0d04df3c, type: 3}
       propertyPath: m_IsActive
@@ -20545,6 +20581,10 @@ PrefabInstance:
       value: upper_Snowman1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eb7a06359339bba44b1e252d375947b2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eb7a06359339bba44b1e252d375947b2, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -23413,6 +23453,10 @@ PrefabInstance:
       value: under_Snowman1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0d4a86e90e3db4d4e9653da0fcafabb4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0d4a86e90e3db4d4e9653da0fcafabb4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -23725,6 +23769,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f9abd281a893a7846a17efebf3e37ad2, type: 3}
       propertyPath: m_Name
       value: under_icicle2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9abd281a893a7846a17efebf3e37ad2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f9abd281a893a7846a17efebf3e37ad2, type: 3}
       propertyPath: m_IsActive
@@ -25207,6 +25255,10 @@ PrefabInstance:
       value: under_IceTree
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2851f8dfc58165044bbeb2098cb0dcee, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2851f8dfc58165044bbeb2098cb0dcee, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -26534,6 +26586,10 @@ PrefabInstance:
       value: upper_Snowman_02
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 648bbcdaacb4bca4b881a42e0d04df3c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 648bbcdaacb4bca4b881a42e0d04df3c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -27088,7 +27144,7 @@ GameObject:
   - component: {fileID: 1452330472}
   - component: {fileID: 1452330471}
   - component: {fileID: 1452330470}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stage2_reverseIcicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27728,7 +27784,7 @@ GameObject:
   - component: {fileID: 1493393576}
   - component: {fileID: 1493393575}
   - component: {fileID: 1493393574}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stage2_Snowman2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28877,6 +28933,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2851f8dfc58165044bbeb2098cb0dcee, type: 3}
       propertyPath: m_Name
       value: under_IceTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2851f8dfc58165044bbeb2098cb0dcee, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2851f8dfc58165044bbeb2098cb0dcee, type: 3}
       propertyPath: m_IsActive
@@ -31338,7 +31398,7 @@ GameObject:
   - component: {fileID: 1658195224}
   - component: {fileID: 1658195223}
   - component: {fileID: 1658195222}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stage2_IceTree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35472,6 +35532,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eb7a06359339bba44b1e252d375947b2, type: 3}
       propertyPath: m_Name
       value: upper_Snowman1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eb7a06359339bba44b1e252d375947b2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eb7a06359339bba44b1e252d375947b2, type: 3}
       propertyPath: m_IsActive
