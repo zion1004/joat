@@ -3128,8 +3128,8 @@ MonoBehaviour:
   lowerPart: {fileID: 102085274}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 125743799}
@@ -9104,8 +9104,8 @@ MonoBehaviour:
   lowerPart: {fileID: 571518234}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 438832868}
@@ -10173,8 +10173,8 @@ MonoBehaviour:
   lowerPart: {fileID: 2144756811}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 491135751}
@@ -11087,8 +11087,8 @@ MonoBehaviour:
   lowerPart: {fileID: 39256724}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 538071031}
@@ -13720,8 +13720,8 @@ MonoBehaviour:
   lowerPart: {fileID: 1309435369}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 708443799}
@@ -15732,8 +15732,8 @@ MonoBehaviour:
   lowerPart: {fileID: 545649450}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 798589580}
@@ -15761,7 +15761,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3425145493320930635, guid: e4ee0e102341c364fa6b82902f774b3e, type: 3}
 --- !u!23 &798589580
@@ -27185,8 +27185,8 @@ MonoBehaviour:
   lowerPart: {fileID: 169549643}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 1452330473}
@@ -27825,8 +27825,8 @@ MonoBehaviour:
   lowerPart: {fileID: 1210529916}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 1493393577}
@@ -31439,8 +31439,8 @@ MonoBehaviour:
   lowerPart: {fileID: 1532988155}
   rotationDuration: 1
   objectDuration: 2
-  upperAngle: 0
-  lowerAngle: 0
+  upperAngle: 77
+  lowerAngle: 77
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 1658195225}
