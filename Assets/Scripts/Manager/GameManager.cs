@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int coins = 0;
     [SerializeField] public int[] oreinventory = new int[3];
     [SerializeField] public int[] blueprintinventory = new int[4];
+    [SerializeField] public int attack = 10;
 
     public GameObject waterDemonicSword;
     public GameObject waterSlayer;

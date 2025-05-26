@@ -385,6 +385,6 @@ public class Blacksmith : MonoBehaviour
     }
 
     public void ExitRoom() {
-        SceneManager.LoadScene("map");
+        SceneManager.LoadScene("map 0");
     }
 }
