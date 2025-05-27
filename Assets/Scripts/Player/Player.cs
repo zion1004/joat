@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
         CrescentBlade
     }
 
-    const float SLICETHRESHOLD = 9f;
+    const float SLICETHRESHOLD = 8f;
 
     [SerializeField] public Weapon weapon = Weapon.Katana;
 

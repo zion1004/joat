@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
     public AudioSource EffectsSource;
     public AudioSource MusicSource;
 
@@ -19,13 +18,16 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void Play(AudioClip clip) {
+    public void PlaySound(AudioClip clip) {
+        EffectsSource.Stop();
         EffectsSource.clip = clip;
         EffectsSource.Play();
     }
 
     public void PlayMusic(AudioClip clip) {
+        MusicSource.Stop();
         MusicSource.clip = clip;
+        MusicSource.loop = true;
         MusicSource.Play();
     }
 }
