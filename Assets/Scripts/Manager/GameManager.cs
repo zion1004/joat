@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int[] blueprintinventory = new int[4];
     [SerializeField] public int attack = 10;
 
+
     public GameObject waterDemonicSword;
     public GameObject waterSlayer;
     public GameObject waterFang;
@@ -54,6 +55,16 @@ public class GameManager : MonoBehaviour
 
     public bool isLoadingGame = false;
 
+    public bool stage2reentry = false;
+    public bool stage3reentry = false;
+    public bool stage4reentry = false;
+    public bool stage5reentry = false;
+
+
+    private void Start()
+    {
+
+    }
     private void Awake() {
         if(Instance == null) {
             Instance = this;

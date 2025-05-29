@@ -31,6 +31,8 @@ public class PlayerSpawner : MonoBehaviour
         GameObject instanciatedPlayer = Instantiate(newPlayer, spawnPoint, Quaternion.identity);
         gm.player = instanciatedPlayer.GetComponent<Player>();
         gm.attack = gm.player.attack;
+        gm.weapon = gm.player.weapon;
+        gm.type = gm.player.type;
         gm.playerTransform = instanciatedPlayer.transform;
         playercam.transform.position = spawnPoint;
         

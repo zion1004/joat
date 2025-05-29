@@ -280,12 +280,12 @@ public class Blacksmith : MonoBehaviour
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = insufficientOreText;
             }
-            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.player.weapon == selectedWeapon){
+            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon){
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else if(GameManager.Instance.player.weapon == selectedWeapon && GameManager.Instance.player.type == Player.Type.Water){
+            else if(GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.type == Player.Type.Water){
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
@@ -311,12 +311,12 @@ public class Blacksmith : MonoBehaviour
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = insufficientOreText;
             }
-            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.player.weapon == selectedWeapon) {
+            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon) {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else if(GameManager.Instance.player.weapon == selectedWeapon && GameManager.Instance.player.type == Player.Type.Fire) {
+            else if(GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.type == Player.Type.Fire) {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
@@ -342,12 +342,12 @@ public class Blacksmith : MonoBehaviour
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = insufficientOreText;
             }
-            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.player.weapon == selectedWeapon) {
+            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon) {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else if(GameManager.Instance.player.weapon == selectedWeapon && GameManager.Instance.player.type == Player.Type.Poison) {
+            else if(GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.player.type == Player.Type.Poison) {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
@@ -385,6 +385,6 @@ public class Blacksmith : MonoBehaviour
     }
 
     public void ExitRoom() {
-        SceneManager.LoadScene("map 0");
+        SceneManager.LoadScene("mapload");
     }
 }

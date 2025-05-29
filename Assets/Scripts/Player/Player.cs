@@ -105,7 +105,6 @@ public class Player : MonoBehaviour {
         HandleInput();
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void HandleStatus() {
         linearSpeed = rb.linearVelocity.magnitude;
         rotationSpeed = rb.angularVelocity.magnitude;
@@ -138,13 +137,16 @@ public class Player : MonoBehaviour {
 
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void HandleInput() {
         if(Input.GetKeyDown(KeyCode.R)) {
-            rb.MovePosition(new Vector3(-5f, 3f, 0f));
+            rb.MovePosition(new Vector3(213f, 130f, 0f));
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            rb.MovePosition(new Vector3(341f, 110f, 0f));
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             HandleJump();
         }
 

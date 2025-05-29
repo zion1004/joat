@@ -18,7 +18,7 @@ public class HUD : MonoBehaviour
         GameManager gm = GameManager.Instance;
 
         SetHealth(gm.durability, gm.maxDurability);
-        SetAttack(gm.player.attack);
+        SetAttack(gm.attack);
         SetCoin(gm.coins);
         SetElement(gm.type);
     }
