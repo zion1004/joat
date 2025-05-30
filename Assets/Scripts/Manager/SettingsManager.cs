@@ -109,7 +109,6 @@ public class SettingsManager : MonoBehaviour
 
     public void SetVoiceVolume(float value) {
         float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
-        Debug.Log(dB);
         audioMixer.SetFloat("VoiceVolume", dB);
         PlayerPrefs.SetFloat(VOICE_VOL_KEY, dB);
         PlayerPrefs.Save();
