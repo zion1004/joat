@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6397932880827874231, guid: 98d40f356900a1f4da70f8b78e8e67d8, type: 3}
       propertyPath: m_Name
-      value: Stage4
+      value: Stage4-8
       objectReference: {fileID: 0}
     - target: {fileID: 8065989049370043756, guid: 98d40f356900a1f4da70f8b78e8e67d8, type: 3}
       propertyPath: m_LocalPosition.x
