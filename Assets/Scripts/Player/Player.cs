@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Runtime.CompilerServices;
 using System.Linq;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 
@@ -76,6 +77,8 @@ public class Player : MonoBehaviour {
 
     private float lastDamageTime = 0f;
 
+    GameObject[] ps;
+    List<ParticleSystem.Particle> inside = new List<ParticleSystem.Particle>();
 
     public bool GetIsNotMoving() {
         return isNotMoving;
@@ -91,6 +94,11 @@ public class Player : MonoBehaviour {
 
     public float GetMaxChargeTime() {
         return maxChargeTime;
+    }
+
+    private void Awake()
+    {
+        ps = GameObject.FindGameObjectsWithTag("Magma");
     }
 
     void Start() {
@@ -295,10 +303,6 @@ public class Player : MonoBehaviour {
             }
         }
     }
-
-    //private void OnTriggerExit(Collider collision) {
-
-    //}
 
     private void OnCollisionStay(Collision collision) {
         isGrounded = true;

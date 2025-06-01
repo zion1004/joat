@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2857411463892239218}
   - component: {fileID: 8955792467928882855}
   - component: {fileID: 2791399099850681223}
+  - component: {fileID: 3617367930917379932}
   m_Layer: 0
   m_Name: Magma Flow
   m_TagString: Untagged
@@ -41,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6322832522388756771}
   serializedVersion: 8
-  lengthInSec: 3
+  lengthInSec: 4
   simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
@@ -3639,7 +3640,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -3810,7 +3811,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 1024
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -3818,14 +3819,14 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
-    inside: 1
+    inside: 2
     outside: 0
     enter: 0
     exit: 0
-    colliderQueryMode: 0
-    radiusScale: 1
+    colliderQueryMode: 2
+    radiusScale: 2
     primitives: []
   SubModule:
     serializedVersion: 2
@@ -4851,3 +4852,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3617367930917379932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322832522388756771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344e6f0e3fea20641bc74c18004d30a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magmaParticle: {fileID: 8955792467928882855}
+  magmaCooldown: 5
+  hitDamage: 1
+  hitDotTime: 0.2

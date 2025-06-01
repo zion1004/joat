@@ -35,8 +35,17 @@ public class PlayerSpawner : MonoBehaviour
         gm.type = gm.player.type;
         gm.playerTransform = instanciatedPlayer.transform;
         playercam.transform.position = spawnPoint;
-        
-        if(gm.isLoadingGame) {
+        MagmaFountain[] siba = (MagmaFountain[]) GameObject.FindObjectsByType(typeof(MagmaFountain), FindObjectsSortMode.None);
+        Debug.Log(instanciatedPlayer.GetComponent<Component>());
+        foreach (var jott in siba) {
+            foreach(var bozzi in instanciatedPlayer.GetComponent<Player>().blade)
+                jott.magmaParticle.trigger.AddCollider(bozzi);
+
+            foreach (var jaji in instanciatedPlayer.GetComponent<Player>().handle)
+                jott.magmaParticle.trigger.AddCollider(jaji);
+        }
+
+        if (gm.isLoadingGame) {
             instanciatedPlayer.transform.SetPositionAndRotation(gm.playerPos, gm.playerRot);
             playercam.transform.position = gm.playerTransform.position;
             gm.isLoadingGame = false;
