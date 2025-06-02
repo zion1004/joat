@@ -397,6 +397,7 @@ MonoBehaviour:
   hitTimeCooldown: 1.5
   slashParticleRight: {fileID: 6206834352052725347}
   slashParticleLeft: {fileID: 715505476378442649}
+  poisonBallDamage: 3
   rb: {fileID: 5609017125616274531}
   isGrounded: 0
 --- !u!1 &1818399886271716079

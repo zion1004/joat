@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4868754685632651565}
   - component: {fileID: 1740553974259062337}
   - component: {fileID: 7896821872606564209}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4842,7 +4842,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6416146441705079950}
-  m_Layer: 0
+  - component: {fileID: 8144971476183446684}
+  - component: {fileID: 5675735697737234680}
+  m_Layer: 17
   m_Name: real poison ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4866,6 +4868,48 @@ Transform:
   - {fileID: 4868754685632651565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &8144971476183446684
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054671470058685089}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
+--- !u!114 &5675735697737234680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054671470058685089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415e80ace80d31e4f9b2d32c44767535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 6732424092804300824}
+  particle: {fileID: 1740553974259062337}
+  rb: {fileID: 8144971476183446684}
 --- !u!1001 &3192415501443427486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4916,11 +4960,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6611217538838580418, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7582733684308899649, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a705877a1803f9f4789df289992dfe3e, type: 2}
     - target: {fileID: 8152602703384390790, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
       propertyPath: m_Name
       value: poison ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152602703384390790, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8152602703384390790, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
       propertyPath: m_IsActive
@@ -4929,60 +4981,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8152602703384390790, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 250006496026213461}
-    - targetCorrespondingSourceObject: {fileID: 8152602703384390790, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6577953390549005588}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
 --- !u!1 &6732424092804300824 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8152602703384390790, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}
   m_PrefabInstance: {fileID: 3192415501443427486}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &250006496026213461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732424092804300824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415e80ace80d31e4f9b2d32c44767535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 0}
-  particle: {fileID: 0}
---- !u!54 &6577953390549005588
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732424092804300824}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
 --- !u!4 &7462123610931561813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5459335950806936011, guid: 5aa8c5ec109c774409d5bf2f10151604, type: 3}

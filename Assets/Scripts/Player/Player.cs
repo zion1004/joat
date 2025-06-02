@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
     
     public ParticleSystem slashParticleRight;
     public ParticleSystem slashParticleLeft;
-
+    public int poisonBallDamage;
 
     private float lastHitTime = -1f;
 
@@ -263,6 +263,29 @@ public class Player : MonoBehaviour {
                 }
             }
         }
+        if (collision.gameObject.layer == 11)
+        {
+            if (type != Type.Fire && GameManager.Instance.durability > 1)
+            {
+                if (Time.time >= lastDamageTime + damageInterval)
+                {
+                    GameManager.Instance.durability -= 1;
+                    lastDamageTime = Time.time;
+                }
+            }
+        }
+        if (collision.gameObject.layer == 12)
+        {
+            if (type != Type.Poison && GameManager.Instance.durability > 1)
+            {
+                if (Time.time >= lastDamageTime + damageInterval)
+                {
+                    GameManager.Instance.durability -= 1;
+                    lastDamageTime = Time.time;
+                }
+            }
+        }
+
         if(collision.gameObject.layer == 7) {
             GameManager.Instance.coins += 1;
             collision.enabled = false;
@@ -317,32 +340,44 @@ public class Player : MonoBehaviour {
     }
 
 
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter(Collision collision)
+    {
 
-        if(collision.gameObject.layer == 3) {
-            if(collision.contacts.Length <= 0) {
+        if (collision.gameObject.layer == 3)
+        {
+            if (collision.contacts.Length <= 0)
+            {
                 return;
             }
 
             Collider col = collision.GetContact(0).thisCollider;
-            if(col == null) {
+            if (col == null)
+            {
                 return;
             }
             Vector3 hitDirection = collision.GetContact(0).normal;
             Vector3 pivotPoint = new Vector3(0, 0, hitDirection.x > 0 ? 1 : -1);
 
-            if(blade.Contains(col) && Mathf.Abs(rotationSpeed) >= SLICETHRESHOLD) {
+            if (blade.Contains(col) && Mathf.Abs(rotationSpeed) >= SLICETHRESHOLD)
+            {
                 //Physics.IgnoreCollision(collision.collider, blade);
                 //Physics.IgnoreCollision(collision.collider, handle);
                 Destroyable destroyable = collision.gameObject.GetComponent<Destroyable>();
-                if(destroyable != null) {
-                    if(Time.time - lastHitTime > hitTimeCooldown) {
+                if (destroyable != null)
+                {
+                    if (Time.time - lastHitTime > hitTimeCooldown)
+                    {
                         lastHitTime = Time.time;
                         GameManager.Instance.durability -= 1;
                         destroyable.GetSliced(attack, pivotPoint);
                     }
                 }
             }
+        }
+
+        if (collision.gameObject.layer == 17)
+        {
+            GameManager.Instance.durability -= poisonBallDamage;
         }
     }
 }
