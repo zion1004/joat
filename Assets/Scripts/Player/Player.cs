@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
         CrescentBlade
     }
 
-    const int SLICETHRESHOLD = 10;
+    const float SLICETHRESHOLD = 8f;
 
     [SerializeField] public Weapon weapon = Weapon.Katana;
 
@@ -53,6 +53,11 @@ public class Player : MonoBehaviour {
     [SerializeField] public HUD hud;
 
     [SerializeField] float hitTimeCooldown = 1.5f;
+    
+    public ParticleSystem slashParticleRight;
+    public ParticleSystem slashParticleLeft;
+
+
     private float lastHitTime = -1f;
 
     public Rigidbody rb;
@@ -95,31 +100,53 @@ public class Player : MonoBehaviour {
         rb.inertiaTensorRotation = Quaternion.identity;
     }
 
-    private void Update() {
-        //if(rb.linearVelocity.sqrMagnitude > 1) {
-        //    //smoothness of the slowdown is controlled by the 0.99f, 
-        //    //0.5f is less smooth, 0.9999f is more smooth
-        //    rb.linearVelocity *= 0.99f;
-        //}
-
+    private void FixedUpdate() {
         HandleStatus();
         HandleInput();
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void HandleStatus() {
         linearSpeed = rb.linearVelocity.magnitude;
         rotationSpeed = rb.angularVelocity.magnitude;
         isNotMoving = linearSpeed < 0f && rotationSpeed < 0f;
-    }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void HandleInput() {
-        if(Input.GetKeyDown(KeyCode.R)) {
-            rb.MovePosition(new Vector3(-5f, 3f, 0f));
+        float spinDirection = Mathf.Sign(rb.angularVelocity.z);
+        if (Mathf.Abs(rotationSpeed) >= SLICETHRESHOLD)
+        {
+            if (spinDirection > 0f)
+            {
+                if (!slashParticleLeft.isPlaying)
+                    slashParticleLeft.Play();
+            }
+            else
+            {
+                if (!slashParticleRight.isPlaying)
+                    slashParticleRight.Play();
+            }
+        }
+        else {
+            if (slashParticleLeft.isPlaying) {
+                slashParticleLeft.Stop();
+            }
+            else if (slashParticleRight.isPlaying)
+            {
+                slashParticleRight.Stop();
+            }
+
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
+    }
+
+    private void HandleInput() {
+        if(Input.GetKeyDown(KeyCode.R)) {
+            rb.MovePosition(new Vector3(213f, 130f, 0f));
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            rb.MovePosition(new Vector3(341f, 110f, 0f));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
             HandleJump();
         }
 
@@ -142,7 +169,6 @@ public class Player : MonoBehaviour {
         }
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void HandleJump() {
         if(isGrounded) {
             HoldJumpStart();
@@ -152,12 +178,10 @@ public class Player : MonoBehaviour {
         }
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public bool CanJump() {
         return Time.time - lastJumpTime > jumpCooldown || isNotMoving;
 ;    }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void HoldJumpStart() {
         if(CanJump()) {
             isCharging = true;
@@ -165,13 +189,11 @@ public class Player : MonoBehaviour {
         }
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void IsHoldingJump() {
-        chargeTime += Time.deltaTime;
+        chargeTime += Time.fixedDeltaTime;
         chargeTime = Mathf.Clamp(chargeTime, 0f, maxChargeTime);
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void HoldJump() {
         float xDirection = 1f;
         float spinDirection = -1f;
@@ -196,7 +218,6 @@ public class Player : MonoBehaviour {
         lastJumpTime = Time.time;
     }
 
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void DoubleJump() {
         float xDirection = 0f;
         float spinDirection = Mathf.Sign(rb.angularVelocity.z);
@@ -305,8 +326,8 @@ public class Player : MonoBehaviour {
             }
             Vector3 hitDirection = collision.GetContact(0).normal;
             Vector3 pivotPoint = new Vector3(0, 0, hitDirection.x > 0 ? 1 : -1);
-            // Mathf.Abs(rotationSpeed) >= SLICETHRESHOLD || Mathf.Abs(linearSpeed) >= 1) &&
-            if((blade.Contains(col))) {
+
+            if(blade.Contains(col) && Mathf.Abs(rotationSpeed) >= SLICETHRESHOLD) {
                 //Physics.IgnoreCollision(collision.collider, blade);
                 //Physics.IgnoreCollision(collision.collider, handle);
                 Destroyable destroyable = collision.gameObject.GetComponent<Destroyable>();

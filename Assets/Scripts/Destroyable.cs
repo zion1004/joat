@@ -74,8 +74,6 @@ public class Destroyable : MonoBehaviour {
 
             StartCoroutine(RotateOverTime(upperPart, new Vector3(upperAngle, 0, 0), rotationDuration));
             StartCoroutine(RotateOverTime(lowerPart, new Vector3(-lowerAngle, 0, 0), rotationDuration));
-            upperCollider.enabled = false;
-            lowerCollider.enabled = false;
         }
     }
 

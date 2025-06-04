@@ -12,6 +12,7 @@ public class SettingsManager : MonoBehaviour
     public Slider masterSlider;
     public Slider musicSlider;
     public Slider sfxSlider;
+    public Slider voiceSlider;
 
     private Resolution[] resolutions;
 
@@ -21,6 +22,7 @@ public class SettingsManager : MonoBehaviour
     private const string MASTER_VOL_KEY = "Audio_Master";
     private const string MUSIC_VOL_KEY = "Audio_Music";
     private const string SFX_VOL_KEY = "Audio_SFX";
+    private const string VOICE_VOL_KEY = "Audio_Voice";
 
 
     void Start() {
@@ -45,14 +47,17 @@ public class SettingsManager : MonoBehaviour
         float masterVol = PlayerPrefs.GetFloat(MASTER_VOL_KEY, 20f);
         float musicVol = PlayerPrefs.GetFloat(MUSIC_VOL_KEY, 20f);
         float sfxVol = PlayerPrefs.GetFloat(SFX_VOL_KEY, 20f);
+        float voiceVol = PlayerPrefs.GetFloat(VOICE_VOL_KEY, 20f);
 
         audioMixer.SetFloat("MasterVolume", masterVol);
         audioMixer.SetFloat("MusicVolume", musicVol);
         audioMixer.SetFloat("SFXVolume", sfxVol);
+        audioMixer.SetFloat("VoiceVolume", voiceVol);
 
         masterSlider.value = Mathf.Pow(10f, masterVol / 20f);
         musicSlider.value = Mathf.Pow(10f, musicVol / 20f);
         sfxSlider.value = Mathf.Pow(10f, sfxVol / 20f);
+        voiceSlider.value = Mathf.Pow(10f, voiceVol / 20f);
 
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = savedResolutionIndex;
@@ -65,6 +70,7 @@ public class SettingsManager : MonoBehaviour
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        voiceSlider.onValueChanged.AddListener(SetVoiceVolume);
     }
 
     public void SetQuality(int index) {
@@ -81,26 +87,32 @@ public class SettingsManager : MonoBehaviour
     }
 
     public void SetMasterVolume(float value) {
-        float dB = Mathf.Log10(Mathf.Clamp(value, 0.001f, 1f)) * 20f;
+        float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
         audioMixer.SetFloat("MasterVolume", dB);
         PlayerPrefs.SetFloat(MASTER_VOL_KEY, dB);
         PlayerPrefs.Save();
     }
 
     public void SetMusicVolume(float value) {
-        float dB = Mathf.Log10(Mathf.Clamp(value, 0.001f, 1f)) * 20f;
+        float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
         audioMixer.SetFloat("MusicVolume", dB);
         PlayerPrefs.SetFloat(MUSIC_VOL_KEY, dB);
         PlayerPrefs.Save();
     }
 
     public void SetSFXVolume(float value) {
-        float dB = Mathf.Log10(Mathf.Clamp(value, 0.001f, 1f)) * 20f;
+        float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
         audioMixer.SetFloat("SFXVolume", dB);
         PlayerPrefs.SetFloat(SFX_VOL_KEY, dB);
         PlayerPrefs.Save();
     }
 
+    public void SetVoiceVolume(float value) {
+        float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
+        audioMixer.SetFloat("VoiceVolume", dB);
+        PlayerPrefs.SetFloat(VOICE_VOL_KEY, dB);
+        PlayerPrefs.Save();
+    }
     void ApplySettings() {
         SetQuality(qualityDropdown.value);
         SetResolution(resolutionDropdown.value);
@@ -108,5 +120,6 @@ public class SettingsManager : MonoBehaviour
         SetMasterVolume(masterSlider.value);
         SetMusicVolume(musicSlider.value);
         SetSFXVolume(sfxSlider.value);
+        SetVoiceVolume(voiceSlider.value);
     }
 }

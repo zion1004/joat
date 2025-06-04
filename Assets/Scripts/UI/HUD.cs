@@ -16,14 +16,11 @@ public class HUD : MonoBehaviour
 
     private void Update() {
         GameManager gm = GameManager.Instance;
-        Player player = gm.player;
-        if(player == null) {
-            return; 
-        }
+
         SetHealth(gm.durability, gm.maxDurability);
-        SetAttack(player.attack);
+        SetAttack(gm.attack);
         SetCoin(gm.coins);
-        SetElement(player.type);
+        SetElement(gm.type);
     }
 
     void SetHealth(int currHealth, int maxHealth) {

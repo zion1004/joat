@@ -45,12 +45,12 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("map 0");
+        SceneManager.LoadScene("mapload");
     }
 
     public void LoadGame() {
         gameManager.LoadGame();
-        SceneManager.LoadScene("map 0");
+        SceneManager.LoadScene("mapload");
     }
 
     public void Settings() {
