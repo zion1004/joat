@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
-
+    public GameObject mainCamera;
     public HashSet<string> destroyedObjects = new HashSet<string>();
 
     public HashSet<string> collectedItems = new HashSet<string>();
