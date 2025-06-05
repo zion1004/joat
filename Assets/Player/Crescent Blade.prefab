@@ -2601,15 +2601,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 4
   maxChargeTime: 1
-  minJumpForce: 0.3
-  maxJumpForce: 0.8
+  minJumpForce: 3
+  maxJumpForce: 10
   minSpinForce: 4
   maxSpinForce: 8
   jumpSideForce: 4
   jumpCooldown: 2
   doubleJumpForce: 1
-  doubleJumpSpinSpeed: 4
-  doubleJumpSideForce: 6
+  doubleJumpSpinSpeed: 2
+  doubleJumpSideForce: 5
   maxAngularVelocity: 20
   blade:
   - {fileID: 7081404785360258646}
@@ -2634,7 +2634,7 @@ MonoBehaviour:
   - {fileID: 5363767359591259835}
   - {fileID: 2210691342776242660}
   handle: []
-  movementAngularRotationForce: 122
+  movementAngularRotationForce: 150
   maxMovementAngularRotationForce: 1
   playerInitialRotation: {x: 0, y: 0, z: 0}
   playerInitialScale: {x: 1, y: 1, z: 1}
@@ -2645,6 +2645,7 @@ MonoBehaviour:
   hitTimeCooldown: 1.5
   slashParticleRight: {fileID: 5692809559127008360}
   slashParticleLeft: {fileID: 3730284434635262188}
+  poisonBallDamage: 0
   rb: {fileID: 197375767598578638}
   isGrounded: 0
 --- !u!1 &8313932911542746851

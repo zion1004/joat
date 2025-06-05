@@ -370,15 +370,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: 1
   maxChargeTime: 1
-  minJumpForce: 0.3
-  maxJumpForce: 0.8
+  minJumpForce: 3.5
+  maxJumpForce: 10
   minSpinForce: 4
   maxSpinForce: 8
   jumpSideForce: 4
   jumpCooldown: 2
   doubleJumpForce: 1
-  doubleJumpSpinSpeed: 4
-  doubleJumpSideForce: 6
+  doubleJumpSpinSpeed: 2
+  doubleJumpSideForce: 5
   maxAngularVelocity: 20
   blade:
   - {fileID: 8742956995509753695}
@@ -386,7 +386,7 @@ MonoBehaviour:
   - {fileID: 2024548879082791146}
   - {fileID: 7594330996062400748}
   handle: []
-  movementAngularRotationForce: 122
+  movementAngularRotationForce: 150
   maxMovementAngularRotationForce: 1
   playerInitialRotation: {x: 0, y: 0, z: 0}
   playerInitialScale: {x: 1, y: 1, z: 1}
