@@ -13,9 +13,12 @@ public class SaveData {
 
     public Player.Weapon weapon;
     public Player.Type type;
+    public int totalRepair;
     public int coins;
+    public int totalcoins;
     public List<int> blueprintList = new List<int>();
     public List<int> oreList = new List<int>();
+    public List<int> totalOreList = new List<int>(); 
     public List<string> collectedItems = new List<string>();
     public List<string> destroyedObjects = new List<string>();
 }

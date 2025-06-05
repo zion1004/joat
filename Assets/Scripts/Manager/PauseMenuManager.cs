@@ -115,7 +115,13 @@ public class PauseMenuManager : MonoBehaviour
         settingsMenu.SetActive(false);
     }
 
-    public void ExitGame() {
+    public void ExitToMain()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    public void ExitGame()
+    {
         gameManager.SaveGame();
         SceneManager.LoadScene("Main");
     }

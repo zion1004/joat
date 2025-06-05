@@ -21,11 +21,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int durability = 100;
     [SerializeField] public int maxDurability = 100;
     [SerializeField] public int coins = 0;
+    [SerializeField] public int totalcoins = 0;
     [SerializeField] public int[] oreinventory = new int[3];
+    [SerializeField] public int[] totaloreinventory = new int[3];
     [SerializeField] public int[] blueprintinventory = new int[4];
     [SerializeField] public int attack = 10;
-
-
+    public int totalsuri = 0;
     public GameObject waterDemonicSword;
     public GameObject waterSlayer;
     public GameObject waterFang;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
     public bool stage4reentry = false;
     public bool stage5reentry = false;
 
+    public bool gameFinished = false;
 
     private void Start()
     {
@@ -105,8 +107,10 @@ public class GameManager : MonoBehaviour
         data.weapon = weapon;
         data.type = type;
         data.coins = coins;
+        data.totalcoins = totalcoins;
         data.blueprintList = new List<int>(blueprintinventory);
         data.oreList = new List<int>(oreinventory);
+        data.totalOreList = new List<int>(totaloreinventory);
         data.destroyedObjects = new List<string>(destroyedObjects);
         data.collectedItems = new List<string>(collectedItems);
         string json = JsonUtility.ToJson(data);
@@ -147,8 +151,15 @@ public class GameManager : MonoBehaviour
         durability = 100;
         maxDurability = 100;
         coins = 0;
+        totalcoins = 0;
         oreinventory = new int[3];
+        totaloreinventory = new int[3];
         blueprintinventory = new int[4];
+    }
+
+    public void GameFinished()
+    {
+        gameFinished = true;
     }
 
     void OnApplicationQuit() {

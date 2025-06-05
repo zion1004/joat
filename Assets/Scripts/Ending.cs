@@ -25,8 +25,9 @@ public class Ending : MonoBehaviour
     private GameObject lightParent;
     private Light spotlight;
 
-    private bool startFly;
+    private bool startFly =false;
     private float startFlyTime;
+    private bool gameFinished = false;
     Player player;
     public void StartEndingScene()
     {
@@ -43,6 +44,10 @@ public class Ending : MonoBehaviour
 
     void Update()
     {
+        if (gameFinished)
+        {
+            return;
+        }
         if (ending && !startEnd)
         {
             var elapsedTime = Mathf.Clamp((Time.time - startTime) / endTime, 0f, 1f);
@@ -103,7 +108,11 @@ public class Ending : MonoBehaviour
             var smoothTime = Mathf.SmoothStep(0f, 1f, elapsedTime);
             var newPos = Vector3.Lerp(currentPos, endPos, smoothTime);
             player.transform.position = newPos;
-
+            if (!gameFinished &&smoothTime >= 1f)
+            {
+                gameFinished = true;
+                GameManager.Instance.GameFinished();
+            }
         }
 
     }

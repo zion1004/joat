@@ -3,16 +3,19 @@ using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Collections.Generic;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
-    public enum Type {
+    public enum Type
+    {
         Normal,
         Water,
         Fire,
         Poison
     }
 
-    public enum Weapon {
+    public enum Weapon
+    {
         Katana,
         DemonicSword,
         Slayer,
@@ -54,7 +57,7 @@ public class Player : MonoBehaviour {
     [SerializeField] public HUD hud;
 
     [SerializeField] float hitTimeCooldown = 1.5f;
-    
+
     public ParticleSystem slashParticleRight;
     public ParticleSystem slashParticleLeft;
     public int poisonBallDamage;
@@ -80,19 +83,23 @@ public class Player : MonoBehaviour {
     GameObject[] ps;
     List<ParticleSystem.Particle> inside = new List<ParticleSystem.Particle>();
 
-    public bool GetIsNotMoving() {
+    public bool GetIsNotMoving()
+    {
         return isNotMoving;
     }
 
-    public bool GetIsCharging() {
+    public bool GetIsCharging()
+    {
         return isCharging;
     }
 
-    public float GetChargeTime() {
+    public float GetChargeTime()
+    {
         return chargeTime;
     }
 
-    public float GetMaxChargeTime() {
+    public float GetMaxChargeTime()
+    {
         return maxChargeTime;
     }
 
@@ -101,19 +108,22 @@ public class Player : MonoBehaviour {
         ps = GameObject.FindGameObjectsWithTag("Magma");
     }
 
-    void Start() {
+    void Start()
+    {
         rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
         rb.maxAngularVelocity = maxAngularVelocity;
         rb.centerOfMass = Vector3.zero;
         rb.inertiaTensorRotation = Quaternion.identity;
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         HandleStatus();
         HandleInput();
     }
 
-    private void HandleStatus() {
+    private void HandleStatus()
+    {
         linearSpeed = rb.linearVelocity.magnitude;
         rotationSpeed = rb.angularVelocity.magnitude;
         isNotMoving = linearSpeed < 0f && rotationSpeed < 0f;
@@ -132,8 +142,10 @@ public class Player : MonoBehaviour {
                     slashParticleRight.Play();
             }
         }
-        else {
-            if (slashParticleLeft.isPlaying) {
+        else
+        {
+            if (slashParticleLeft.isPlaying)
+            {
                 slashParticleLeft.Stop();
             }
             else if (slashParticleRight.isPlaying)
@@ -145,8 +157,10 @@ public class Player : MonoBehaviour {
 
     }
 
-    private void HandleInput() {
-        if(Input.GetKeyDown(KeyCode.R)) {
+    private void HandleInput()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             rb.MovePosition(new Vector3(213f, 130f, 0f));
         }
         if (Input.GetKeyDown(KeyCode.T))
@@ -154,63 +168,80 @@ public class Player : MonoBehaviour {
             rb.MovePosition(new Vector3(341f, 110f, 0f));
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             HandleJump();
         }
 
-        if(Input.GetKey(KeyCode.Space) && isCharging) {
+        if (Input.GetKey(KeyCode.Space) && isCharging)
+        {
             IsHoldingJump();
         }
 
-        if(Input.GetKeyUp(KeyCode.Space) && isCharging) {
+        if (Input.GetKeyUp(KeyCode.Space) && isCharging)
+        {
             HoldJump();
         }
 
-        if(isGrounded) {
+        if (isGrounded)
+        {
             bool canRotate = Mathf.Abs(rotationSpeed) < maxMovementAngularRotationForce;
-            if(Input.GetKey(KeyCode.LeftArrow) && canRotate) {
+            if (Input.GetKey(KeyCode.LeftArrow) && canRotate)
+            {
                 rb.AddTorque(movementAngularRotationForce * Vector3.forward, ForceMode.Force);
             }
-            if(Input.GetKey(KeyCode.RightArrow) && canRotate) {
+            if (Input.GetKey(KeyCode.RightArrow) && canRotate)
+            {
                 rb.AddTorque(-movementAngularRotationForce * Vector3.forward, ForceMode.Force);
             }
         }
     }
 
-    private void HandleJump() {
-        if(isGrounded) {
+    private void HandleJump()
+    {
+        if (isGrounded)
+        {
             HoldJumpStart();
         }
-        else if(canDoubleJump) {
+        else if (canDoubleJump)
+        {
             DoubleJump();
         }
     }
 
-    public bool CanJump() {
+    public bool CanJump()
+    {
         return Time.time - lastJumpTime > jumpCooldown || isNotMoving;
-;    }
+        ;
+    }
 
-    private void HoldJumpStart() {
-        if(CanJump()) {
+    private void HoldJumpStart()
+    {
+        if (CanJump())
+        {
             isCharging = true;
             chargeTime = 0;
         }
     }
 
-    private void IsHoldingJump() {
+    private void IsHoldingJump()
+    {
         chargeTime += Time.fixedDeltaTime;
         chargeTime = Mathf.Clamp(chargeTime, 0f, maxChargeTime);
     }
 
-    private void HoldJump() {
+    private void HoldJump()
+    {
         float xDirection = 1f;
         float spinDirection = -1f;
 
-        if(Input.GetKey(KeyCode.LeftArrow)) {
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
             xDirection = -1f;
             spinDirection = 1f;
         }
-        else if(!Input.GetKey(KeyCode.RightArrow)) {
+        else if (!Input.GetKey(KeyCode.RightArrow))
+        {
             spinDirection = (rb.angularVelocity.z != 0) ? Mathf.Sign(rb.angularVelocity.z) : 1f;
             xDirection = -spinDirection;
         }
@@ -226,15 +257,18 @@ public class Player : MonoBehaviour {
         lastJumpTime = Time.time;
     }
 
-    private void DoubleJump() {
+    private void DoubleJump()
+    {
         float xDirection = 0f;
         float spinDirection = Mathf.Sign(rb.angularVelocity.z);
 
-        if(Input.GetKey(KeyCode.LeftArrow)) {
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
             xDirection = -1f;
             spinDirection = 1f;
         }
-        else if(Input.GetKey(KeyCode.RightArrow)) {
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
             xDirection = 1f;
             spinDirection = -1f;
         }
@@ -246,18 +280,78 @@ public class Player : MonoBehaviour {
         canDoubleJump = false;
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            collision.enabled = false;
+            GameManager.Instance.coins += 1;
+            GameManager.Instance.totalcoins += 1;
+        }
+        if (collision.gameObject.layer == 8)
+        {
+            collision.enabled = false;
+            Ore ore = collision.gameObject.GetComponent<Ore>();
+            if (ore != null)
+            {
+                Type type = ore.type;
+                if (type == Type.Water)
+                {
+                    GameManager.Instance.oreinventory[0] += 1;
+                    GameManager.Instance.totaloreinventory[0] += 1;
+                }
+                else if (type == Type.Fire)
+                {
+                    GameManager.Instance.oreinventory[1] += 1;
+                    GameManager.Instance.totaloreinventory[1] += 1;
+                }
+                else if (type == Type.Poison)
+                {
+                    GameManager.Instance.oreinventory[2] += 1;
+                    GameManager.Instance.totaloreinventory[2] += 1;
+                }
+            }
+        }
+        if (collision.gameObject.layer == 9)
+        {
+            collision.enabled = false;
+            Blueprint blueprint = collision.gameObject.GetComponent<Blueprint>();
+            if (blueprint != null)
+            {
+                Blueprint.Weapon weapon = blueprint.weapon;
+                if (weapon == Blueprint.Weapon.DemonicSword)
+                {
+                    GameManager.Instance.blueprintinventory[0] = 1;
+                }
+                else if (weapon == Blueprint.Weapon.Slayer)
+                {
+                    GameManager.Instance.blueprintinventory[1] = 1;
+                }
+                else if (weapon == Blueprint.Weapon.Fang)
+                {
+                    GameManager.Instance.blueprintinventory[2] = 1;
+                }
+                else if (weapon == Blueprint.Weapon.CrescentBlade)
+                {
+                    GameManager.Instance.blueprintinventory[3] = 1;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
 
     }
 
-    private void OnTriggerExit(Collider other) {
-
-    }
-
-    private void OnTriggerStay(Collider collision) {
-        if(collision.gameObject.layer == 4) {
-            if(type != Type.Water && GameManager.Instance.durability > 1) {
-                if(Time.time >= lastDamageTime + damageInterval) {
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.layer == 4)
+        {
+            if (type != Type.Water && GameManager.Instance.durability > 1)
+            {
+                if (Time.time >= lastDamageTime + damageInterval)
+                {
                     GameManager.Instance.durability -= 1;
                     lastDamageTime = Time.time;
                 }
@@ -285,57 +379,20 @@ public class Player : MonoBehaviour {
                 }
             }
         }
-
-        if(collision.gameObject.layer == 7) {
-            GameManager.Instance.coins += 1;
-            collision.enabled = false;
-        }
-        if(collision.gameObject.layer == 8){
-            collision.enabled = false;
-            Ore ore = collision.gameObject.GetComponent<Ore>();
-            if(ore != null){
-                Type type = ore.type;
-                if(type == Type.Water){
-                    GameManager.Instance.oreinventory[0] += 1;
-                }
-                else if(type == Type.Fire){
-                    GameManager.Instance.oreinventory[1] += 1;
-                }
-                else if(type == Type.Poison){
-                    GameManager.Instance.oreinventory[2] += 1;
-                }
-            }
-        }
-        if(collision.gameObject.layer == 9){
-            collision.enabled = false;
-            Blueprint blueprint = collision.gameObject.GetComponent<Blueprint>();
-            if(blueprint != null) {
-                Blueprint.Weapon weapon = blueprint.weapon;
-                if(weapon == Blueprint.Weapon.DemonicSword) {
-                    GameManager.Instance.blueprintinventory[0] = 1;
-                }
-                else if(weapon == Blueprint.Weapon.Slayer) {
-                    GameManager.Instance.blueprintinventory[1] = 1;
-                }
-                else if(weapon == Blueprint.Weapon.Fang) {
-                    GameManager.Instance.blueprintinventory[2] = 1;
-                }
-                else if(weapon == Blueprint.Weapon.CrescentBlade){
-                    GameManager.Instance.blueprintinventory[3] = 1;
-                }
-            }
-        }
     }
 
-    private void OnCollisionStay(Collision collision) {
+    private void OnCollisionStay(Collision collision)
+    {
         isGrounded = true;
 
-        if(Time.time - lastJumpTime > groundToJumpThreshhold) {
+        if (Time.time - lastJumpTime > groundToJumpThreshhold)
+        {
             canDoubleJump = false;
         }
     }
 
-    private void OnCollisionExit(Collision collision) {
+    private void OnCollisionExit(Collision collision)
+    {
         isGrounded = false;
     }
 
