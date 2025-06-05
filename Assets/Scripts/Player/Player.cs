@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     }
 
     const float SLICETHRESHOLD = 8f;
-
+    private GameManager gm;
     [SerializeField] public Weapon weapon = Weapon.Katana;
 
     [SerializeField] public float maxChargeTime = 1f;
@@ -80,8 +80,6 @@ public class Player : MonoBehaviour
 
     private float lastDamageTime = 0f;
 
-    GameObject[] ps;
-    List<ParticleSystem.Particle> inside = new List<ParticleSystem.Particle>();
 
     public bool GetIsNotMoving()
     {
@@ -105,11 +103,11 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        ps = GameObject.FindGameObjectsWithTag("Magma");
     }
 
     void Start()
     {
+        gm = GameManager.Instance;
         rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
         rb.maxAngularVelocity = maxAngularVelocity;
         rb.centerOfMass = Vector3.zero;
@@ -124,6 +122,11 @@ public class Player : MonoBehaviour
 
     private void HandleStatus()
     {
+        if (gm.durability <= 0)
+        {
+            gm.gameOver = true;
+            Destroy(gameObject);
+        }
         linearSpeed = rb.linearVelocity.magnitude;
         rotationSpeed = rb.angularVelocity.magnitude;
         isNotMoving = linearSpeed < 0f && rotationSpeed < 0f;
@@ -285,8 +288,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 7)
         {
             collision.enabled = false;
-            GameManager.Instance.coins += 1;
-            GameManager.Instance.totalcoins += 1;
+            gm.coins += 1;
+            gm.totalcoins += 1;
         }
         if (collision.gameObject.layer == 8)
         {
@@ -297,18 +300,18 @@ public class Player : MonoBehaviour
                 Type type = ore.type;
                 if (type == Type.Water)
                 {
-                    GameManager.Instance.oreinventory[0] += 1;
-                    GameManager.Instance.totaloreinventory[0] += 1;
+                    gm.oreinventory[0] += 1;
+                    gm.totaloreinventory[0] += 1;
                 }
                 else if (type == Type.Fire)
                 {
-                    GameManager.Instance.oreinventory[1] += 1;
-                    GameManager.Instance.totaloreinventory[1] += 1;
+                    gm.oreinventory[1] += 1;
+                    gm.totaloreinventory[1] += 1;
                 }
                 else if (type == Type.Poison)
                 {
-                    GameManager.Instance.oreinventory[2] += 1;
-                    GameManager.Instance.totaloreinventory[2] += 1;
+                    gm.oreinventory[2] += 1;
+                    gm.totaloreinventory[2] += 1;
                 }
             }
         }
@@ -321,19 +324,19 @@ public class Player : MonoBehaviour
                 Blueprint.Weapon weapon = blueprint.weapon;
                 if (weapon == Blueprint.Weapon.DemonicSword)
                 {
-                    GameManager.Instance.blueprintinventory[0] = 1;
+                    gm.blueprintinventory[0] = 1;
                 }
                 else if (weapon == Blueprint.Weapon.Slayer)
                 {
-                    GameManager.Instance.blueprintinventory[1] = 1;
+                    gm.blueprintinventory[1] = 1;
                 }
                 else if (weapon == Blueprint.Weapon.Fang)
                 {
-                    GameManager.Instance.blueprintinventory[2] = 1;
+                    gm.blueprintinventory[2] = 1;
                 }
                 else if (weapon == Blueprint.Weapon.CrescentBlade)
                 {
-                    GameManager.Instance.blueprintinventory[3] = 1;
+                    gm.blueprintinventory[3] = 1;
                 }
             }
         }
@@ -348,33 +351,33 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == 4)
         {
-            if (type != Type.Water && GameManager.Instance.durability > 1)
+            if (type != Type.Water && gm.durability > 1)
             {
                 if (Time.time >= lastDamageTime + damageInterval)
                 {
-                    GameManager.Instance.durability -= 1;
+                    gm.durability -= 1;
                     lastDamageTime = Time.time;
                 }
             }
         }
         if (collision.gameObject.layer == 11)
         {
-            if (type != Type.Fire && GameManager.Instance.durability > 1)
+            if (type != Type.Fire && gm.durability > 1)
             {
                 if (Time.time >= lastDamageTime + damageInterval)
                 {
-                    GameManager.Instance.durability -= 1;
+                    gm.durability -= 1;
                     lastDamageTime = Time.time;
                 }
             }
         }
         if (collision.gameObject.layer == 12)
         {
-            if (type != Type.Poison && GameManager.Instance.durability > 1)
+            if (type != Type.Poison && gm.durability > 1)
             {
                 if (Time.time >= lastDamageTime + damageInterval)
                 {
-                    GameManager.Instance.durability -= 1;
+                    gm.durability -= 1;
                     lastDamageTime = Time.time;
                 }
             }
@@ -425,7 +428,7 @@ public class Player : MonoBehaviour
                     if (Time.time - lastHitTime > hitTimeCooldown)
                     {
                         lastHitTime = Time.time;
-                        GameManager.Instance.durability -= 1;
+                        gm.durability -= 1;
                         destroyable.GetSliced(attack, pivotPoint);
                     }
                 }
@@ -434,7 +437,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.layer == 17)
         {
-            GameManager.Instance.durability -= poisonBallDamage;
+            gm.durability -= poisonBallDamage;
         }
     }
 }
