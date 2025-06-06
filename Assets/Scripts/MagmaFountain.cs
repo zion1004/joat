@@ -5,7 +5,6 @@ public class MagmaFountain : MonoBehaviour
 {
 
     public ParticleSystem magmaParticle;
-    List<ParticleSystem.Particle> inside = new List<ParticleSystem.Particle>();
     public float magmaCooldown;
 
     public int hitDamage;

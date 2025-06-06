@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     public bool stage5reentry = false;
 
     public bool gameFinished = false;
+    public bool gameOver = false;
 
     private void Start()
     {
