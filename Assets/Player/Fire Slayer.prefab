@@ -1478,7 +1478,7 @@ MonoBehaviour:
   playerInitialRotation: {x: 0, y: 0, z: 0}
   playerInitialScale: {x: 1, y: 1, z: 1}
   type: 2
-  attack: 10
+  attack: 25
   damageInterval: 1
   hud: {fileID: 0}
   hitTimeCooldown: 1.5
