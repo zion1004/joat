@@ -633,9 +633,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 345411515348668766, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 345411515348668766, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 565812250979671543, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
       propertyPath: m_Name
       value: Stage2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664684471515032537, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664684471515032537, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933096445350596725, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933096445350596725, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041440404086342621, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041440404086342621, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766343788181752641, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766343788181752641, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958882764027829274, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958882764027829274, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4115192230368624110, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
       propertyPath: m_LocalPosition.x
@@ -669,9 +717,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 374.82
       objectReference: {fileID: 0}
+    - target: {fileID: 4775512174076307211, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775512174076307211, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 5834346404105268784, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
       propertyPath: m_Name
       value: Blacksmith Portal2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860689051753029412, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860689051753029412, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6800021793019014353, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,6 +776,22 @@ PrefabInstance:
     - target: {fileID: 6800021793019014353, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808555366575327896, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808555366575327896, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327045325753216677, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: defense
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327045325753216677, guid: f249fb43e53f69942a99ab08526e0550, type: 3}
+      propertyPath: maxDefense
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

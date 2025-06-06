@@ -1279,10 +1279,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 640693246694727560, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 640693246694727560, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 691806707324135529, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1612990509}
+    - target: {fileID: 829147550844098930, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 829147550844098930, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 878551999457454779, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 878551999457454779, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201999001370306781, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201999001370306781, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2201999001370306781, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
       propertyPath: meshCollider
       value: 
@@ -1375,9 +1407,33 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.21
       objectReference: {fileID: 0}
+    - target: {fileID: 3597315511885393079, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597315511885393079, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228119089944183027, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228119089944183027, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 5829985855104460730, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
       propertyPath: m_LocalPosition.x
       value: -191.359
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213854886271970150, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213854886271970150, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7001814962929636220, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
       propertyPath: m_Name
@@ -1411,6 +1467,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -78.575
       objectReference: {fileID: 0}
+    - target: {fileID: 7634600556019673967, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634600556019673967, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812419691439639264, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812419691439639264, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7812419691439639264, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
       propertyPath: meshCollider
       value: 
@@ -1422,6 +1494,22 @@ PrefabInstance:
     - target: {fileID: 7832401715448388019, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
       propertyPath: m_VersionIndex
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252478355316603351, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252478355316603351, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940310137770998660, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: defense
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940310137770998660, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
+      propertyPath: maxDefense
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8940310137770998660, guid: 3ba147cc86cf52643827c5e015765d70, type: 3}
       propertyPath: meshCollider
