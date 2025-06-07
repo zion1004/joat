@@ -50,20 +50,24 @@ public class Destroyable : MonoBehaviour {
                 newMats[i] = temp[i];
             }
             outlineMaterialInstance = Instantiate(outlineMaterial);
+            outlineMaterialInstance.SetFloat("_Thickness", outlineWidth);
             newMats[i] = outlineMaterialInstance;
             meshRenderer.materials = newMats;
         }
     }
-
-    public void GetSliced(int attack, Vector3 hitDirection) {
+    
+    public void GetSliced(int attack, Vector3 hitDirection)
+    {
         float a = (float)defense / (float)maxDefense;
         UpdateHealth(a);
 
-        if(attack < defense) {
+        if (attack < defense)
+        {
             TiltOnHit(hitDirection);
             defense -= attack;
         }
-        else {
+        else
+        {
             GameManager.Instance.MarkDestroyed(itemID);
             meshRenderer.enabled = false;
             if (meshCollider != null)
