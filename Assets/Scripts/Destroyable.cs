@@ -25,6 +25,7 @@ public class Destroyable : MonoBehaviour {
 
     private Material outlineMaterialInstance;
 
+    public float outlineWidth = 0.11f;
     public float tiltAmount = 10f;
     public float tiltDuration = 0.2f; 
     public float resetSpeed = 5f;

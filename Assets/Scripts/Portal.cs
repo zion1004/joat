@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    [SerializeField] public string portalID;          
+    [SerializeField] public GameManager.BlacksmithPosition portalID;          
     [SerializeField] public string sceneToLoad = "Blacksmith";
     
     private bool isPlayerInRange;
@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
     private void Update() {
         if(isPlayerInRange && Input.GetKeyDown(KeyCode.UpArrow)) {
             GameManager.Instance.returnPosition = GameManager.Instance.player.transform.position;
+            GameManager.Instance.currentBlacksmith = portalID;
             SceneManager.LoadScene(sceneToLoad);
         }
     }

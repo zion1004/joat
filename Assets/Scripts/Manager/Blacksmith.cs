@@ -102,6 +102,8 @@ public class Blacksmith : MonoBehaviour
 
 
     public void Start() {
+        GameManager gm = GameManager.Instance;
+        repairCost = gm.repairPrice[(int)gm.currentBlacksmith];
         mainMenu.SetActive(true);
         repairMenu.SetActive(false);
         repairSubmenu.SetActive(false);
