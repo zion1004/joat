@@ -11,6 +11,8 @@ public class Portal : MonoBehaviour
     private void Update() {
         if(isPlayerInRange && Input.GetKeyDown(KeyCode.UpArrow)) {
             GameManager.Instance.returnPosition = GameManager.Instance.player.transform.position;
+            GameManager.Instance.returnRotation = GameManager.Instance.player.transform.rotation;
+            
             GameManager.Instance.currentBlacksmith = portalID;
             SceneManager.LoadScene(sceneToLoad);
         }

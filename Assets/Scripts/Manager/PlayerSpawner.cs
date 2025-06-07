@@ -1,3 +1,4 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -6,14 +7,21 @@ public class PlayerSpawner : MonoBehaviour
 {
     public Player player;
     public GameObject playercam;
-    public Vector3 offset = new Vector3(0, 10, 0);
+    public Vector3 offset = new Vector3(0, 1.5f, 0);
 
 
     void Start() {
         GameManager gm = GameManager.Instance;
         Vector3 spawnPoint = gm.returnPosition + offset;
+        Quaternion spawnRot = gm.returnRotation;
         Player.Weapon selectedWeapon = gm.weapon;
         Player.Type selectedType = gm.type;
+        if (gm.isLoadingGame)
+        {
+            spawnPoint = gm.playerPos;
+            spawnRot = gm.playerRot;
+            gm.isLoadingGame = false;
+        }
 
         GameObject newPlayer = selectedWeapon == Player.Weapon.Katana ? gm.katana :
            selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Water ? gm.waterDemonicSword :
@@ -28,7 +36,7 @@ public class PlayerSpawner : MonoBehaviour
            gm.crescentBlade;
 
 
-        GameObject instanciatedPlayer = Instantiate(newPlayer, spawnPoint, Quaternion.identity);
+        GameObject instanciatedPlayer = Instantiate(newPlayer, spawnPoint, spawnRot);
         gm.player = instanciatedPlayer.GetComponent<Player>();
         gm.attack = gm.player.attack;
         gm.weapon = gm.player.weapon;
@@ -45,10 +53,6 @@ public class PlayerSpawner : MonoBehaviour
                 jott.magmaParticle.trigger.AddCollider(jaji);
         }
 
-        if (gm.isLoadingGame) {
-            instanciatedPlayer.transform.SetPositionAndRotation(gm.playerPos, gm.playerRot);
-            playercam.transform.position = gm.playerTransform.position;
-            gm.isLoadingGame = false;
-        }
+
     }
 }

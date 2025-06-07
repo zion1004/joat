@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -18,7 +19,8 @@ public class GameManager : MonoBehaviour
 
     public HashSet<string> collectedItems = new HashSet<string>();
 
-    private string saveKey = "swordrunsavefileasdfsdfaf";
+    private string fileName = "D.joat";
+    private FileDataHandler fdh;
 
     [SerializeField] public Player player;
     [SerializeField] public Transform playerTransform;
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
     public GameObject yeonsikDick;
 
     public Vector3 returnPosition;
+    public Quaternion returnRotation;
     public bool playerChanged = false;
     public Player.Weapon weapon;
     public Player.Type type;
@@ -72,7 +75,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        fdh = new FileDataHandler(Application.persistentDataPath, fileName);
     }
     private void Awake() {
         if(Instance == null) {
@@ -102,6 +105,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame() {
         SaveData data = new SaveData();
+        data.sanityCheck = 1;
         data.posx = playerTransform.position.x;
         data.posy = playerTransform.position.y;
         data.posz = playerTransform.position.z;
@@ -113,6 +117,7 @@ public class GameManager : MonoBehaviour
 
         data.weapon = weapon;
         data.type = type;
+        data.durability = durability;
         data.coins = coins;
         data.totalcoins = totalcoins;
         data.blueprintList = new List<int>(blueprintinventory);
@@ -120,38 +125,54 @@ public class GameManager : MonoBehaviour
         data.totalOreList = new List<int>(totaloreinventory);
         data.destroyedObjects = new List<string>(destroyedObjects);
         data.collectedItems = new List<string>(collectedItems);
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(saveKey, json);
-        PlayerPrefs.Save();
+        fdh.Save(data);
     }
 
-    public bool HasSave() {
-        return PlayerPrefs.HasKey(saveKey);
+    public bool HasSave()
+    {
+        SaveData data = fdh.Load();
+        if (data == null)
+        {
+            return false;
+        }
+        if (data.sanityCheck == 0)
+        {
+            return false;
+        }
+        if (data.sanityCheck == 1)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void LoadGame() {
-        if(PlayerPrefs.HasKey(saveKey)) {
-            isLoadingGame = true;
-            string json = PlayerPrefs.GetString(saveKey);
-            SaveData data = JsonUtility.FromJson<SaveData>(json);
-
-            playerPos = new Vector3(data.posx, data.posy, data.posz);
-            playerRot = Quaternion.Euler(data.rotx, data.roty, data.rotz);
-
-
-
-            weapon = data.weapon;
-            type = data.type;
-            coins = data.coins;
-            blueprintinventory = data.blueprintList.ToArray();
-            oreinventory = data.oreList.ToArray();
-            destroyedObjects = new HashSet<string>(data.destroyedObjects);
-            collectedItems = new HashSet<string>(data.collectedItems);
+        SaveData data = fdh.Load();
+        if (data == null)
+        {
+            return;
         }
+        if (data.sanityCheck == 0)
+        {
+            return;
+        }
+        data.sanityCheck = 0;
+        fdh.Save(data);
+
+        isLoadingGame = true;
+        playerPos = new Vector3(data.posx, data.posy, data.posz);
+        playerRot = Quaternion.Euler(data.rotx, data.roty, data.rotz);
+        weapon = data.weapon;
+        type = data.type;
+        durability = data.durability;
+        coins = data.coins;
+        blueprintinventory = data.blueprintList.ToArray();
+        oreinventory = data.oreList.ToArray();
+        destroyedObjects = new HashSet<string>(data.destroyedObjects);
+        collectedItems = new HashSet<string>(data.collectedItems);
     }
 
     public void ResetSave() {
-        PlayerPrefs.DeleteKey(saveKey);
         playerTransform = null;
         destroyedObjects.Clear();
         collectedItems.Clear();
