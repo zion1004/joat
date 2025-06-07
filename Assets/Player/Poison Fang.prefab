@@ -2568,6 +2568,8 @@ GameObject:
   - component: {fileID: 6682398240014880806}
   - component: {fileID: 7484829677026739762}
   - component: {fileID: 2470302282317206556}
+  - component: {fileID: -8271010950207336125}
+  - component: {fileID: -7785912599025382327}
   m_Layer: 10
   m_Name: Poison Fang
   m_TagString: Untagged
@@ -2620,7 +2622,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!114 &2470302282317206556
@@ -2674,6 +2676,30 @@ MonoBehaviour:
   poisonBallDamage: 3
   rb: {fileID: 7484829677026739762}
   isGrounded: 0
+--- !u!114 &-8271010950207336125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909322197477517482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db74ba77feefd8440b4ea12a44e71e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7785912599025382327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909322197477517482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b842a2eb5178724ebfb94f620b6f820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7100544807316593230
 GameObject:
   m_ObjectHideFlags: 0

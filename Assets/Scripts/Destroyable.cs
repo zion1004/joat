@@ -19,6 +19,7 @@ public class Destroyable : MonoBehaviour {
 
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] MeshCollider meshCollider;
+    [SerializeField] GameObject hitbox;
 
     public Material outlineMaterial;
 
@@ -64,13 +65,17 @@ public class Destroyable : MonoBehaviour {
         else {
             GameManager.Instance.MarkDestroyed(itemID);
             meshRenderer.enabled = false;
-            meshCollider.enabled = false;
+            if (meshCollider != null)
+            {
+                meshCollider.enabled = false;
+            }
+            else if (hitbox != null)
+            {
+                hitbox.SetActive(false);
+            }
 
             upperPart.gameObject.SetActive(true);
-            MeshCollider upperCollider = upperPart.GetComponent<MeshCollider>();
-
             lowerPart.gameObject.SetActive(true);
-            MeshCollider lowerCollider = lowerPart.GetComponent<MeshCollider>();
 
             StartCoroutine(RotateOverTime(upperPart, new Vector3(upperAngle, 0, 0), rotationDuration));
             StartCoroutine(RotateOverTime(lowerPart, new Vector3(-lowerAngle, 0, 0), rotationDuration));

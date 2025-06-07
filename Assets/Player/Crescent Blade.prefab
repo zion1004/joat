@@ -2532,6 +2532,8 @@ GameObject:
   - component: {fileID: 152521095865367132}
   - component: {fileID: 197375767598578638}
   - component: {fileID: 8426932838717767598}
+  - component: {fileID: 4239729150867546845}
+  - component: {fileID: 3442937004118307536}
   m_Layer: 10
   m_Name: Crescent Blade
   m_TagString: Untagged
@@ -2648,6 +2650,30 @@ MonoBehaviour:
   poisonBallDamage: 0
   rb: {fileID: 197375767598578638}
   isGrounded: 0
+--- !u!114 &4239729150867546845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8308978194400919345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db74ba77feefd8440b4ea12a44e71e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3442937004118307536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8308978194400919345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b842a2eb5178724ebfb94f620b6f820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8313932911542746851
 GameObject:
   m_ObjectHideFlags: 0

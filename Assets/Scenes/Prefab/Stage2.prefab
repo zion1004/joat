@@ -555,6 +555,7 @@ MonoBehaviour:
   maxDefense: 50
   meshRenderer: {fileID: 4693255597010506624}
   meshCollider: {fileID: 4635054047479256671}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -1110,6 +1111,7 @@ MonoBehaviour:
   maxDefense: 50
   meshRenderer: {fileID: 590428015096720014}
   meshCollider: {fileID: 9012856003525225826}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -1265,7 +1267,6 @@ GameObject:
   - component: {fileID: 3569892779093033859}
   - component: {fileID: 2053661397018807112}
   - component: {fileID: 983102863854414452}
-  - component: {fileID: 989520026000049804}
   - component: {fileID: 2856667277944783051}
   - component: {fileID: 5860689051753029412}
   m_Layer: 3
@@ -1346,28 +1347,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &989520026000049804
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168280343992490401}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7722201907659181342, guid: 2f0d06460af8385498085d4e0b7f35d2, type: 3}
 --- !u!114 &2856667277944783051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1383,8 @@ MonoBehaviour:
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 983102863854414452}
-  meshCollider: {fileID: 989520026000049804}
+  meshCollider: {fileID: 0}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -1755,6 +1735,7 @@ MonoBehaviour:
   maxDefense: 50
   meshRenderer: {fileID: 5316195519497310554}
   meshCollider: {fileID: 5568927842690369658}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -1909,6 +1890,7 @@ MonoBehaviour:
   maxDefense: 50
   meshRenderer: {fileID: 4655886665859055133}
   meshCollider: {fileID: 3001339950755970515}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -2281,6 +2263,7 @@ MonoBehaviour:
   maxDefense: 50
   meshRenderer: {fileID: 722165044593852855}
   meshCollider: {fileID: 7254072314891004187}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -2311,7 +2294,6 @@ GameObject:
   - component: {fileID: 7327045325753216677}
   - component: {fileID: 7936229633039051238}
   - component: {fileID: 3973274910545144317}
-  - component: {fileID: 2441418008115430141}
   - component: {fileID: 7619547967505781322}
   - component: {fileID: 915280395029831786}
   m_Layer: 3
@@ -2360,7 +2342,8 @@ MonoBehaviour:
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 3973274910545144317}
-  meshCollider: {fileID: 2441418008115430141}
+  meshCollider: {fileID: 0}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -2419,28 +2402,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2441418008115430141
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5863205406721142616}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7722201907659181342, guid: 2f0d06460af8385498085d4e0b7f35d2, type: 3}
 --- !u!114 &7619547967505781322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2477,7 +2438,8 @@ MonoBehaviour:
   defense: 50
   maxDefense: 50
   meshRenderer: {fileID: 3973274910545144317}
-  meshCollider: {fileID: 2441418008115430141}
+  meshCollider: {fileID: 0}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -2928,6 +2890,7 @@ MonoBehaviour:
   maxDefense: 50
   meshRenderer: {fileID: 3724204324586387807}
   meshCollider: {fileID: 2312440859468495436}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -3246,6 +3209,7 @@ MonoBehaviour:
   maxDefense: 50
   meshRenderer: {fileID: 1432109997681178240}
   meshCollider: {fileID: 8803959577535364977}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2
@@ -3786,6 +3750,7 @@ MonoBehaviour:
   maxDefense: 50
   meshRenderer: {fileID: 7563851438578385262}
   meshCollider: {fileID: 2406744889391749516}
+  hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
   tiltAmount: 10
   tiltDuration: 0.2

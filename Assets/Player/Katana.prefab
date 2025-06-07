@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 7082539708058027269}
   - component: {fileID: 8268825088520644545}
   - component: {fileID: 2022390513970940274}
+  - component: {fileID: 8096996416672657317}
   m_Layer: 10
   m_Name: Katana
   m_TagString: Untagged
@@ -101,7 +102,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 72
   m_CollisionDetection: 2
 --- !u!114 &8268825088520644545
@@ -164,6 +165,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db74ba77feefd8440b4ea12a44e71e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8096996416672657317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280608431173609180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b842a2eb5178724ebfb94f620b6f820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &344683846821344644
