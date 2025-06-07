@@ -30,7 +30,9 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject exitMenu;
 
     private GameManager gameManager;
-    
+
+    private bool pauseMenuActive = false;
+
     void Start()
     {
         gameManager = GameManager.Instance;
@@ -41,12 +43,25 @@ public class PauseMenuManager : MonoBehaviour
         audioSettingsMenu.SetActive(false);
     }
 
-    public void PauseMenu() {
-        menu.SetActive(true);
-        pauseMenu.SetActive(true);
-        settingsMenu.SetActive(false);
-        resetMenu.SetActive(false);
-        exitMenu.SetActive(false);
+    public void PauseMenu()
+    {
+        if (!pauseMenuActive)
+        {
+            pauseMenuActive = true;
+            menu.SetActive(true);
+            pauseMenu.SetActive(true);
+            settingsSubBackButton.SetActive(false);
+            settingsMenu.SetActive(false);
+            graphicsSettingMenu.SetActive(false);
+            audioSettingsMenu.SetActive(false);
+            resetMenu.SetActive(false);
+            exitMenu.SetActive(false);
+        }
+        else
+        {
+            pauseMenuActive = false;
+            Resume();
+        }
     }
 
     public void Resume() {
