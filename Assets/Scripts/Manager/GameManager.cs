@@ -155,8 +155,7 @@ public class GameManager : MonoBehaviour
         playerTransform = null;
         destroyedObjects.Clear();
         collectedItems.Clear();
-        durability = 100;
-        maxDurability = 100;
+        durability = maxDurability;
         coins = 0;
         totalcoins = 0;
         oreinventory = new int[3];

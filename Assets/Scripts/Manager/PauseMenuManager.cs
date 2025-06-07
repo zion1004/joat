@@ -104,6 +104,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public void ResetGame() {
         gameManager.ResetSave();
+        gameManager.returnPosition = new Vector3(0f, 0f, 0f);
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
