@@ -64,6 +64,11 @@ public class GameManager : MonoBehaviour
     public Vector3 playerAngularVeloc;
 
     public bool isLoadingGame = false;
+    public bool stage2entry = false;
+    public bool stage3entry = false;
+    public bool stage4entry = false;
+    public bool stage5entry = false;
+
 
     public bool stage2reentry = false;
     public bool stage3reentry = false;
