@@ -127,6 +127,7 @@ public class Blacksmith : MonoBehaviour
 
         GameManager.Instance.coins -= repairCost;
         GameManager.Instance.durability = GameManager.Instance.maxDurability;
+        GameManager.Instance.totalsuri += 1;
         UpdateRepairMenu();
     }
 

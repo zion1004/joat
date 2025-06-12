@@ -15,47 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/mapload.unity
     guid: fad031b7732dc744fa4b239871aa214a
   - enabled: 1
-    path: Assets/Scenes/map 0.unity
-    guid: 5dd8d1f61217fbd48ae9ab06f73a200c
-  - enabled: 1
-    path: Assets/Scenes/map 1.unity
-    guid: f80943bb660b2364281cbc4e1481fd9f
-  - enabled: 1
-    path: Assets/Scenes/map 2.unity
-    guid: 6868da73afb853549af5a62ed23f2f4e
-  - enabled: 1
-    path: Assets/Scenes/map 3-1.unity
-    guid: a9a25fb466c18914a9faeef0a9ea3fbb
-  - enabled: 1
-    path: Assets/Scenes/map 3-2.unity
-    guid: 7f4a1442874a91949a72ff693d3e2a3d
-  - enabled: 1
-    path: Assets/Scenes/map 3-3.unity
-    guid: 13a8be2d51189f8428c7aebc0780a5e1
-  - enabled: 1
-    path: Assets/Scenes/map 3-4.unity
-    guid: 88b0985bce58098478f6cbfd8b1b6e0e
-  - enabled: 1
-    path: Assets/Scenes/map 3-4-1.unity
-    guid: 9aa6fbe3f7dfce44b9f1a07a900b2d8a
-  - enabled: 1
-    path: Assets/Scenes/map 3-5.unity
-    guid: 49855e75b670f414aa40f257cab6416f
-  - enabled: 1
-    path: Assets/Scenes/map 3-5-1.unity
-    guid: cd8051c8164f75a49938bd7682c40ad3
-  - enabled: 1
-    path: Assets/Scenes/map 3-5-2.unity
-    guid: ac1c27be6f37051448d8e1e8c0bcdfd5
-  - enabled: 1
-    path: Assets/Scenes/map 3-6.unity
-    guid: c10691f16ae20624bb6e538c77e82ffb
-  - enabled: 1
-    path: Assets/Scenes/map 4.unity
-    guid: 56415c4cc0d10624eaa19337df979d9c
-  - enabled: 1
-    path: Assets/Scenes/map 4-1.unity
-    guid: 7f6ba352384481741b207547a95c31f5
+    path: Assets/Scenes/bigmap.unity
+    guid: 027bef694464dc74f8be78f426b4f6ca
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -7,7 +7,7 @@ public class SceneLoader : MonoBehaviour
     private void Start()
     {
         Application.backgroundLoadingPriority = ThreadPriority.High;
-        StartCoroutine(LoadScene("map 0"));
+        StartCoroutine(LoadScene("bigmap"));
     }
 
 

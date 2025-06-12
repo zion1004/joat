@@ -3,6 +3,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class SaveData {
+    public int sanityCheck;
     public float posx;
     public float posy;
     public float posz;
@@ -13,6 +14,7 @@ public class SaveData {
 
     public Player.Weapon weapon;
     public Player.Type type;
+    public int durability;
     public int totalRepair;
     public int coins;
     public int totalcoins;
