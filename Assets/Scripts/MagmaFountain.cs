@@ -15,7 +15,6 @@ public class MagmaFountain : MonoBehaviour
 
     private void OnParticleTrigger()
     {
-        Debug.Log("asdf");
         if (Time.time - hitCooldown > hitDotTime)
         {
             GameManager.Instance.durability -= hitDamage;
@@ -28,7 +27,6 @@ public class MagmaFountain : MonoBehaviour
         hitCooldown = -1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Time.time - timer > magmaCooldown)

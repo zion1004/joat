@@ -557,6 +557,7 @@ MonoBehaviour:
   meshCollider: {fileID: 4635054047479256671}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -1113,6 +1114,7 @@ MonoBehaviour:
   meshCollider: {fileID: 9012856003525225826}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -1386,6 +1388,7 @@ MonoBehaviour:
   meshCollider: {fileID: 0}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -1737,6 +1740,7 @@ MonoBehaviour:
   meshCollider: {fileID: 5568927842690369658}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -1892,6 +1896,7 @@ MonoBehaviour:
   meshCollider: {fileID: 3001339950755970515}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -2265,6 +2270,7 @@ MonoBehaviour:
   meshCollider: {fileID: 7254072314891004187}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -2345,6 +2351,7 @@ MonoBehaviour:
   meshCollider: {fileID: 0}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -2441,6 +2448,7 @@ MonoBehaviour:
   meshCollider: {fileID: 0}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -2453,8 +2461,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2227403589165629789}
-  - component: {fileID: 685676706200036048}
-  - component: {fileID: 248547500324389560}
   - component: {fileID: 6022069283989933595}
   - component: {fileID: 2220164722176126254}
   - component: {fileID: 1044024054570056602}
@@ -2482,59 +2488,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5552922191209118791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &685676706200036048
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6179334283901946510}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &248547500324389560
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6179334283901946510}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 40dad762937e06544b69044663b4e73d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6022069283989933595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2892,6 +2845,7 @@ MonoBehaviour:
   meshCollider: {fileID: 2312440859468495436}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -3211,6 +3165,7 @@ MonoBehaviour:
   meshCollider: {fileID: 8803959577535364977}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -3752,6 +3707,7 @@ MonoBehaviour:
   meshCollider: {fileID: 2406744889391749516}
   hitbox: {fileID: 0}
   outlineMaterial: {fileID: 2100000, guid: 4ecff25c0a8ef3d4ba093a5f7c457c27, type: 2}
+  outlineWidth: 0.11
   tiltAmount: 10
   tiltDuration: 0.2
   resetSpeed: 5
@@ -40014,7 +39970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e1b3e7f2faacf49acd50c2679b0e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalID: stage2
+  portalID: 0
   sceneToLoad: Blacksmith
 --- !u!65 &341212041270836361
 BoxCollider:

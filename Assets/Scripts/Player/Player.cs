@@ -79,7 +79,16 @@ public class Player : MonoBehaviour
     private float linearSpeed = 0f;
 
     private float lastDamageTime = 0f;
+    private bool canMove = true;
+    public void StopMove()
+    {
+        canMove = false;
+    }
 
+    public void StartMove()
+    {
+        canMove = true;
+    }
 
     public bool GetIsNotMoving()
     {
@@ -151,7 +160,7 @@ public class Player : MonoBehaviour
             {
                 slashParticleLeft.Stop();
             }
-            else if (slashParticleRight.isPlaying)
+            if (slashParticleRight.isPlaying)
             {
                 slashParticleRight.Stop();
             }
@@ -162,6 +171,11 @@ public class Player : MonoBehaviour
 
     private void HandleInput()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             rb.MovePosition(new Vector3(213f, 130f, 0f));

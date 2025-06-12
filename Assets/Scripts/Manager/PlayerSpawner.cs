@@ -1,3 +1,4 @@
+using HeneGames.DialogueSystem;
 using UnityEngine;
 
 
@@ -7,6 +8,7 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject playercam;
     public Vector3 offset = new Vector3(0, 1.5f, 0);
 
+    public bool isTutorial = false;
 
     void Start() {
         GameManager gm = GameManager.Instance;
@@ -32,7 +34,10 @@ public class PlayerSpawner : MonoBehaviour
            selectedWeapon == Player.Weapon.Fang && selectedType == Player.Type.Fire ? gm.fireFang :
            selectedWeapon == Player.Weapon.Fang && selectedType == Player.Type.Poison ? gm.poisonFang :
            gm.crescentBlade;
-
+        if (isTutorial)
+        {
+            newPlayer = gm.yeonsikDick;
+        }
 
         GameObject instanciatedPlayer = Instantiate(newPlayer, spawnPoint, spawnRot);
         gm.player = instanciatedPlayer.GetComponent<Player>();
@@ -41,10 +46,12 @@ public class PlayerSpawner : MonoBehaviour
         gm.type = gm.player.type;
         gm.playerTransform = instanciatedPlayer.transform;
         playercam.transform.position = spawnPoint;
+        
         MagmaFountain[] siba = (MagmaFountain[]) GameObject.FindObjectsByType(typeof(MagmaFountain), FindObjectsSortMode.None);
-        Debug.Log(instanciatedPlayer.GetComponent<Component>());
-        foreach (var jott in siba) {
-            foreach(var bozzi in instanciatedPlayer.GetComponent<Player>().blade)
+
+        foreach (var jott in siba)
+        {
+            foreach (var bozzi in instanciatedPlayer.GetComponent<Player>().blade)
                 jott.magmaParticle.trigger.AddCollider(bozzi);
 
             foreach (var jaji in instanciatedPlayer.GetComponent<Player>().handle)
