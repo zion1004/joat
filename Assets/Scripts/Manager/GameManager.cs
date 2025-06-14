@@ -8,13 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public enum BlacksmithPosition
     {
-        Stage1, Stage2, Stage3, Stage4, Stage5
+        Stage1, Stage2, Stage3, Stage4, Stage5, Tutorial
     };
 
+    public bool[] tutorialComplete = { false, false, false, false };
     public static GameManager Instance;
     public GameObject mainCamera;
     public BlacksmithPosition currentBlacksmith;
-    public int[] repairPrice = { 0, 10, 15, 20, 25 };
+    public int[] repairPrice = { 0, 10, 15, 20, 25, 0 };
     public HashSet<string> destroyedObjects = new HashSet<string>();
 
     public HashSet<string> collectedItems = new HashSet<string>();

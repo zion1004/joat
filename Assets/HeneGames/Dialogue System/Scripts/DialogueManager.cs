@@ -30,10 +30,18 @@ namespace HeneGames.DialogueSystem
         [SerializeField] private TriggerState triggerState;
         [SerializeField] private List<NPC_Centence> sentences = new List<NPC_Centence>();
 
+        public int tutorialLevel;
+        private GameManager gm;
+
+        private void Start()
+        {
+            gm = GameManager.Instance;   
+        }
+
         private void Update()
         {
             //Timer
-            if(coolDownTimer > 0f)
+            if (coolDownTimer > 0f)
             {
                 coolDownTimer -= Time.deltaTime;
             }
@@ -62,6 +70,15 @@ namespace HeneGames.DialogueSystem
         //Start dialogue by trigger
         private void OnTriggerEnter(Collider other)
         {
+            if (other.gameObject.layer != 10)
+            {
+                return;
+            }
+            if (gm.tutorialComplete[tutorialLevel])
+            {
+                return;
+            }
+
             if (triggerState == TriggerState.Collision && !dialogueIsOn)
             {
                 //Try to find the "DialogueTrigger" component in the crashing collider
@@ -81,30 +98,13 @@ namespace HeneGames.DialogueSystem
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (triggerState == TriggerState.Collision && !dialogueIsOn)
-            {
-                //Try to find the "DialogueTrigger" component in the crashing collider
-                if (collision.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
-                {
-                    //Trigger event inside DialogueTrigger component and store refenrece
-                    dialogueTrigger = _trigger;
-                    dialogueTrigger.startDialogueEvent.Invoke();
-
-                    startDialogueEvent.Invoke();
-
-                    //If component found start dialogue
-                    DialogueUI.instance.StartDialogue(this);
-
-                    dialogueIsOn = true;
-                }
-            }
-        }
-
         //Start dialogue by pressing DialogueUI action input
         private void OnTriggerStay(Collider other)
         {
+            if (other.gameObject.layer != 10)
+            {
+                return;
+            }
             if (dialogueTrigger != null)
                 return;
 
@@ -122,42 +122,13 @@ namespace HeneGames.DialogueSystem
             }
         }
 
-        private void OnTriggerStay2D(Collider2D collision)
-        {
-            if (dialogueTrigger != null)
-                return;
-
-            if (triggerState == TriggerState.Input && dialogueTrigger == null)
-            {
-                //Try to find the "DialogueTrigger" component in the crashing collider
-                if (collision.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
-                {
-                    //Show interaction UI
-                    DialogueUI.instance.ShowInteractionUI(true);
-
-                    //Store refenrece
-                    dialogueTrigger = _trigger;
-                }
-            }
-        }
-
         private void OnTriggerExit(Collider other)
         {
-            //Try to find the "DialogueTrigger" component from the exiting collider
-            if (other.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
+            if (other.gameObject.layer != 10)
             {
-                //Hide interaction UI
-                DialogueUI.instance.ShowInteractionUI(false);
-
-                //Stop dialogue
-                StopDialogue();
+                return;
             }
-        }
-
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            //Try to find the "DialogueTrigger" component from the exiting collider
-            if (collision.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
+            if (other.gameObject.TryGetComponent<DialogueTrigger>(out DialogueTrigger _trigger))
             {
                 //Hide interaction UI
                 DialogueUI.instance.ShowInteractionUI(false);
@@ -245,7 +216,7 @@ namespace HeneGames.DialogueSystem
             DialogueUI.instance.ClearText();
 
             //Stop audiosource so that the speaker's voice does not play in the background
-            if(audioSource != null)
+            if (audioSource != null)
             {
                 audioSource.Stop();
             }
@@ -253,6 +224,7 @@ namespace HeneGames.DialogueSystem
             //Remove trigger refence
             dialogueIsOn = false;
             dialogueTrigger = null;
+            gm.tutorialComplete[tutorialLevel] = true;
         }
 
         private void PlaySound(AudioClip _audioClip)
