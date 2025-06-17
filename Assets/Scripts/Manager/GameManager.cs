@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     public GameObject katana;
     public GameObject crescentBlade;
 
-    public GameObject yeonsikDick;
+    public GameObject tutblade;
 
     public Vector3 returnPosition;
     public Quaternion returnRotation;
@@ -216,7 +216,6 @@ public class GameManager : MonoBehaviour
     public void MoveToMainGame()
     {
         ResetSave();
-        
         SceneManager.LoadScene("mapload");
     }
 

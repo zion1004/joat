@@ -16,4 +16,9 @@ public class TutorialManager : MonoBehaviour
         gm.player.StopMove();
         endTutorialDialogue.SetActive(true);
     }
+
+    public void MoveToGame()
+    {
+        gm.MoveToMainGame();
+    }
 }

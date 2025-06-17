@@ -36,7 +36,7 @@ public class PlayerSpawner : MonoBehaviour
            gm.crescentBlade;
         if (isTutorial)
         {
-            newPlayer = gm.yeonsikDick;
+            newPlayer = gm.tutblade;
         }
 
         GameObject instanciatedPlayer = Instantiate(newPlayer, spawnPoint, spawnRot);
