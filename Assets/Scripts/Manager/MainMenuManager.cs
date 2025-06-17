@@ -44,8 +44,16 @@ public class MainMenuManager : MonoBehaviour
         audioSettingsMenu.SetActive(false);
     }
 
-    public void StartGame() {
-        SceneManager.LoadScene("mapload");
+    public void StartGame()
+    {
+        if (gameManager.HasCompletedTutorial())
+        {
+            SceneManager.LoadScene("mapload");
+        }
+        else
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
     }
 
     public void LoadGame() {

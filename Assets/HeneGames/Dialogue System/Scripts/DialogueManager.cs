@@ -74,7 +74,11 @@ namespace HeneGames.DialogueSystem
             {
                 return;
             }
-            if (gm.tutorialComplete[tutorialLevel])
+            if (!(tutorialLevel == -1) && gm.tutorialComplete[tutorialLevel])
+            {
+                return;
+            }
+            if (tutorialLevel == -1 && gm.hasCompletedCutscene)
             {
                 return;
             }
@@ -224,7 +228,10 @@ namespace HeneGames.DialogueSystem
             //Remove trigger refence
             dialogueIsOn = false;
             dialogueTrigger = null;
-            gm.tutorialComplete[tutorialLevel] = true;
+            if (tutorialLevel != -1)
+            { 
+                gm.tutorialComplete[tutorialLevel] = true;
+            }
         }
 
         private void PlaySound(AudioClip _audioClip)

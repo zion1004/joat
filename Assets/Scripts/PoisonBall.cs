@@ -11,7 +11,6 @@ public class PoisonBall : MonoBehaviour
     {
         if (collision.gameObject.layer != 16)
         {
-            rb.linearVelocity = Vector3.zero;
             rb.useGravity = false;
             ball.SetActive(false);
             rb.isKinematic = true;

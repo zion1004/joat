@@ -3,6 +3,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class SaveData {
+    public bool hasCompletedTutorial;
     public int sanityCheck;
     public float posx;
     public float posy;

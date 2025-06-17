@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -79,6 +79,10 @@ public class GameManager : MonoBehaviour
     public bool gameFinished = false;
     public bool gameOver = false;
 
+    public bool hasCompletedTutorial = false;
+    public bool hasCompletedCutscene = false;
+
+
     private void Start()
     {
         fdh = new FileDataHandler(Application.persistentDataPath, fileName);
@@ -111,6 +115,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame() {
         SaveData data = new SaveData();
+        data.hasCompletedTutorial = hasCompletedTutorial;
         data.sanityCheck = 1;
         data.posx = playerTransform.position.x;
         data.posy = playerTransform.position.y;
@@ -152,18 +157,31 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void LoadGame() {
+    public bool HasCompletedTutorial()
+    {
+        SaveData data = fdh.Load();
+        if (data == null)
+        {
+            return false;
+        }
+        return data.hasCompletedTutorial;
+    }
+
+    public void LoadGame()
+    {
         SaveData data = fdh.Load();
         if (data == null)
         {
             return;
         }
+        hasCompletedTutorial = data.hasCompletedTutorial;
         if (data.sanityCheck == 0)
         {
             return;
         }
         data.sanityCheck = 0;
         fdh.Save(data);
+
 
         isLoadingGame = true;
         playerPos = new Vector3(data.posx, data.posy, data.posz);
@@ -195,8 +213,15 @@ public class GameManager : MonoBehaviour
         gameFinished = true;
     }
 
+    public void MoveToMainGame()
+    {
+        ResetSave();
+        
+        SceneManager.LoadScene("mapload");
+    }
+
     void OnApplicationQuit() {
         //Debug.Log("Quitting");
-        //SaveGame();
+        SaveGame();
     }
 }
