@@ -124,7 +124,7 @@ public class Blacksmith : MonoBehaviour
         if(GameManager.Instance.coins < repairCost){
             return;
         }
-
+        AudioManager.Instance.PlaySound(AudioManager.Instance.anvil);
         GameManager.Instance.coins -= repairCost;
         GameManager.Instance.durability = GameManager.Instance.maxDurability;
         GameManager.Instance.totalsuri += 1;
@@ -373,6 +373,7 @@ public class Blacksmith : MonoBehaviour
     }
 
     public void Forge() {
+        AudioManager.Instance.PlaySound(AudioManager.Instance.forge);
         GameManager.Instance.playerChanged = true;
         GameManager.Instance.weapon = selectedWeapon;
         GameManager.Instance.type = selectedType;
@@ -388,6 +389,8 @@ public class Blacksmith : MonoBehaviour
     }
 
     public void ExitRoom() {
+        AudioManager.Instance.MusicSource.Stop();
+        AudioManager.Instance.MusicSource.volume = 1f;
         SceneManager.LoadScene("mapload");
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class CutSceneTrigger : MonoBehaviour
 {
     GameManager gm;
+    AudioManager am;
 
     public GameObject hitbox;
     public GameObject cutsenes;
@@ -18,7 +19,7 @@ public class CutSceneTrigger : MonoBehaviour
     void Start()
     {
         gm = GameManager.Instance;
-
+        am = AudioManager.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -81,6 +82,7 @@ public class CutSceneTrigger : MonoBehaviour
         scene3.SetActive(false);
         cutsenes.SetActive(false);
         gm.player.StartMove();
+        am.PlayVoice(am.stage1);
     }
     
 }

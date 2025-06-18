@@ -14,6 +14,7 @@ public class Portal : MonoBehaviour
             GameManager.Instance.returnRotation = GameManager.Instance.player.transform.rotation;
             
             GameManager.Instance.currentBlacksmith = portalID;
+            AudioManager.Instance.MusicSource.volume = 0.3f;
             SceneManager.LoadScene(sceneToLoad);
         }
     }

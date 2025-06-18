@@ -30,6 +30,7 @@ public class FallJorong : MonoBehaviour
         {
             fallTime = Time.time;
             fell = true;
+            GameManager.Instance.currentStage = stage;
             if (stage == 2)
             {
                 GameManager.Instance.stage2reentry = true;

@@ -1,9 +1,14 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 [System.Serializable]
 public class SaveData {
     public bool hasCompletedTutorial;
+    public int currentStage;
+    public bool stage1entry;
+    public bool stage2entry;
+    public bool stage3entry;
+    public bool stage4entry;
+    public bool stage5entry;
     public int sanityCheck;
     public float posx;
     public float posy;

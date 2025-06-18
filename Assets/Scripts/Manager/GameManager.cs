@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     {
         Stage1, Stage2, Stage3, Stage4, Stage5, Tutorial
     };
+    public int currentStage = 1;
 
     public bool[] tutorialComplete = { false, false, false, false };
     public static GameManager Instance;
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
     public Vector3 playerAngularVeloc;
 
     public bool isLoadingGame = false;
+    public bool stage1entry = false;
     public bool stage2entry = false;
     public bool stage3entry = false;
     public bool stage4entry = false;
@@ -117,6 +119,12 @@ public class GameManager : MonoBehaviour
         SaveData data = new SaveData();
         data.hasCompletedTutorial = hasCompletedTutorial;
         data.sanityCheck = 1;
+        data.currentStage = currentStage;
+        data.stage1entry = stage1entry;
+        data.stage2entry = stage2entry;
+        data.stage3entry = stage3entry;
+        data.stage4entry = stage4entry;
+        data.stage5entry = stage5entry;
         data.posx = playerTransform.position.x;
         data.posy = playerTransform.position.y;
         data.posz = playerTransform.position.z;
@@ -181,9 +189,15 @@ public class GameManager : MonoBehaviour
         }
         data.sanityCheck = 0;
         fdh.Save(data);
-
+        currentStage = data.currentStage;
 
         isLoadingGame = true;
+        stage1entry = data.stage1entry;
+        stage2entry = data.stage2entry;
+        stage3entry = data.stage3entry;
+        stage4entry = data.stage4entry;
+        stage5entry = data.stage5entry;
+
         playerPos = new Vector3(data.posx, data.posy, data.posz);
         playerRot = Quaternion.Euler(data.rotx, data.roty, data.rotz);
         weapon = data.weapon;

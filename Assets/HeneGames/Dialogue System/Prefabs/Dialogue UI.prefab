@@ -793,8 +793,8 @@ MonoBehaviour:
   dialogueWindow: {fileID: 6449296285370776052}
   interactionUI: {fileID: 7386985446916643908}
   animateText: 1
-  textAnimationSpeed: 0.5
-  actionInput: 32
+  textAnimationSpeed: 1
+  actionInput: 122
 --- !u!223 &6449296285829880522
 Canvas:
   m_ObjectHideFlags: 0
@@ -816,7 +816,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!114 &6449296285829880523
 MonoBehaviour:

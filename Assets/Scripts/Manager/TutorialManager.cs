@@ -19,6 +19,7 @@ public class TutorialManager : MonoBehaviour
 
     public void MoveToGame()
     {
+        gm.returnPosition = new Vector3(-5f, 3f, 0f);
         gm.MoveToMainGame();
     }
 }
