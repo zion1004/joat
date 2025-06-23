@@ -3,7 +3,7 @@ using UnityEngine;
 public class BgmTrigger : MonoBehaviour
 {
     public int tid;
-    public AudioManager am;
+    private AudioManager am;
 
     void Start()
     {
@@ -16,23 +16,23 @@ public class BgmTrigger : MonoBehaviour
         {
             if (tid == 1)
             {
-                AudioManager.Instance.PlayMusic(am.stage1);
+                AudioManager.Instance.PlayMusic(am.stage1bgm);
             }
             if (tid == 2)
             {
-                AudioManager.Instance.PlayMusic(am.stage2);
+                AudioManager.Instance.PlayMusic(am.stage2bgm);
             }
             if (tid == 3)
             {
-                AudioManager.Instance.PlayMusic(am.stage3);
+                AudioManager.Instance.PlayMusic(am.stage3bgm);
             }
             if (tid == 4)
             {
-                AudioManager.Instance.PlayMusic(am.stage4);
+                AudioManager.Instance.PlayMusic(am.stage4bgm);
             }
             if (tid == 5)
             {
-                AudioManager.Instance.PlayMusic(am.stage5);
+                AudioManager.Instance.PlayMusic(am.stage5bgm);
             }
             
         }
