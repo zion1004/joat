@@ -29,6 +29,10 @@ public class MainMenuManager : MonoBehaviour
 
     private GameManager gameManager;
 
+        [Header("Credits")]
+    public GameObject creditsMenu;
+
+
     void Start()
     {
         gameManager = GameManager.Instance;
@@ -96,7 +100,20 @@ public class MainMenuManager : MonoBehaviour
         audioSettingsMenu.SetActive(true);
     }
 
-    public void ExitGame(){
+    public void CreditsMenu()
+    {
+        mainMenuBar.SetActive(false);
+        creditsMenu.SetActive(true);
+    }
+
+    public void BackButton()
+    {
+        mainMenuBar.SetActive(true);
+        creditsMenu.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
         Application.Quit();
     }
 }

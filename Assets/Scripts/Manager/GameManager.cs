@@ -116,6 +116,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveGame() {
+        if (playerTransform == null)
+        {
+            return;
+        }
         SaveData data = new SaveData();
         data.hasCompletedTutorial = hasCompletedTutorial;
         data.sanityCheck = 1;
