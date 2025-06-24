@@ -88,3 +88,4 @@ crashlytics-build.properties
 *.vsix
 Assets/Scenes/bigmap.unity
 Assets/Scenes/bigmap.unity.meta
+Assets/Scenes/bigmap2.unity

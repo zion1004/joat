@@ -38,8 +38,12 @@ public class PlayerSpawner : MonoBehaviour
         {
             newPlayer = gm.tutblade;
         }
-
+        Debug.Log(gm.mainCamera.GetComponent<Camera>());
         GameObject instanciatedPlayer = Instantiate(newPlayer, spawnPoint, spawnRot);
+        FadeObjectBlockingObject fobo = instanciatedPlayer.GetComponent<FadeObjectBlockingObject>();
+        fobo.Camera = gm.mainCamera.GetComponent<Camera>();
+        fobo.Enable();
+        
         gm.player = instanciatedPlayer.GetComponent<Player>();
         gm.attack = gm.player.attack;
         gm.weapon = gm.player.weapon;

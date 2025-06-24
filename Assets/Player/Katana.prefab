@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 2022390513970940274}
   - component: {fileID: 8096996416672657317}
   - component: {fileID: 3386314084707224100}
+  - component: {fileID: 4323732619218028642}
   m_Layer: 10
   m_Name: Katana
   m_TagString: Untagged
@@ -201,6 +202,28 @@ MonoBehaviour:
   endDialogueEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4323732619218028642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280608431173609180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77c44a48e2a0f246aad7b305b51ad74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Target: {fileID: 635743633019333790}
+  Camera: {fileID: 0}
+  FadedAlpha: 0.33
+  RetainShadows: 1
+  TargetPositionOffset: {x: 0, y: 1, z: 0}
+  FadeSpeed: 1
+  ObjectsBlockingView: []
 --- !u!1 &344683846821344644
 GameObject:
   m_ObjectHideFlags: 0

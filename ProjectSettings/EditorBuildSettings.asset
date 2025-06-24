@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: fad031b7732dc744fa4b239871aa214a
   - enabled: 1
     path: Assets/Scenes/bigmap.unity
-    guid: 027bef694464dc74f8be78f426b4f6ca
+    guid: cff64dc0611cf2d40b2731680fe536e4
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 02a76021886a1534b8c81be6c9bb6721
