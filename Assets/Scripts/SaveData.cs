@@ -3,6 +3,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SaveData {
     public bool hasCompletedTutorial;
+    public bool hasCompletedCutscene;
     public int currentStage;
     public bool stage1entry;
     public bool stage2entry;

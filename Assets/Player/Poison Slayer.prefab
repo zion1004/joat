@@ -1384,6 +1384,7 @@ GameObject:
   - component: {fileID: 8675197272092577752}
   - component: {fileID: -8106945264523232560}
   - component: {fileID: -2320353035406728125}
+  - component: {fileID: -7470405588264753944}
   m_Layer: 10
   m_Name: Poison Slayer
   m_TagString: Untagged
@@ -1487,6 +1488,7 @@ MonoBehaviour:
   slashParticleRight: {fileID: 4611048677023215596}
   slashParticleLeft: {fileID: 9040348254936809826}
   poisonBallDamage: 3
+  needleDamage: 2
   rb: {fileID: 7543724109385654668}
   isGrounded: 0
 --- !u!114 &-8106945264523232560
@@ -1513,6 +1515,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b842a2eb5178724ebfb94f620b6f820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7470405588264753944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567725347392265362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77c44a48e2a0f246aad7b305b51ad74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  Target: {fileID: 5872172141219653312}
+  Camera: {fileID: 0}
+  FadedAlpha: 0.33
+  RetainShadows: 1
+  TargetPositionOffset: {x: 0, y: 0, z: 0}
+  FadeSpeed: 3
+  ObjectsBlockingView: []
 --- !u!1 &5878431452167545651
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,8 +25,8 @@ public class PlayerSpawner : MonoBehaviour
 
         GameObject newPlayer = selectedWeapon == Player.Weapon.Katana ? gm.katana :
            selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Water ? gm.waterDemonicSword :
-           selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Fire ? gm.waterDemonicSword :
-           selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Poison ? gm.waterDemonicSword :
+           selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Fire ? gm.fireDemonicSword :
+           selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Poison ? gm.poisonDemonicSword :
            selectedWeapon == Player.Weapon.Slayer && selectedType == Player.Type.Water ? gm.waterSlayer :
            selectedWeapon == Player.Weapon.Slayer && selectedType == Player.Type.Fire ? gm.fireSlayer :
            selectedWeapon == Player.Weapon.Slayer && selectedType == Player.Type.Poison ? gm.poisonSlayer :
@@ -34,15 +34,22 @@ public class PlayerSpawner : MonoBehaviour
            selectedWeapon == Player.Weapon.Fang && selectedType == Player.Type.Fire ? gm.fireFang :
            selectedWeapon == Player.Weapon.Fang && selectedType == Player.Type.Poison ? gm.poisonFang :
            gm.crescentBlade;
+           
         if (isTutorial)
         {
             newPlayer = gm.tutblade;
         }
-        Debug.Log(gm.mainCamera.GetComponent<Camera>());
+
+
+    
         GameObject instanciatedPlayer = Instantiate(newPlayer, spawnPoint, spawnRot);
         FadeObjectBlockingObject fobo = instanciatedPlayer.GetComponent<FadeObjectBlockingObject>();
-        fobo.Camera = gm.mainCamera.GetComponent<Camera>();
-        fobo.Enable();
+        CamManager camManager = GameObject.Find("Camera Manager").GetComponent<CamManager>();
+        if (camManager != null && fobo != null)
+        {
+            fobo.Camera = camManager.mainCamera;
+            fobo.Enable();
+        }
         
         gm.player = instanciatedPlayer.GetComponent<Player>();
         gm.attack = gm.player.attack;
@@ -61,7 +68,5 @@ public class PlayerSpawner : MonoBehaviour
             foreach (var jaji in instanciatedPlayer.GetComponent<Player>().handle)
                 jott.magmaParticle.trigger.AddCollider(jaji);
         }
-
-
     }
 }

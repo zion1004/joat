@@ -2570,6 +2570,7 @@ GameObject:
   - component: {fileID: 2470302282317206556}
   - component: {fileID: 2469597418051319513}
   - component: {fileID: 6453199275892071106}
+  - component: {fileID: 7871843393556058048}
   m_Layer: 10
   m_Name: Water Fang
   m_TagString: Untagged
@@ -2674,6 +2675,7 @@ MonoBehaviour:
   slashParticleRight: {fileID: 5936559485444016812}
   slashParticleLeft: {fileID: 5144434918841499361}
   poisonBallDamage: 3
+  needleDamage: 2
   rb: {fileID: 7484829677026739762}
   isGrounded: 0
 --- !u!114 &2469597418051319513
@@ -2700,6 +2702,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b842a2eb5178724ebfb94f620b6f820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7871843393556058048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909322197477517482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77c44a48e2a0f246aad7b305b51ad74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  Target: {fileID: 6682398240014880806}
+  Camera: {fileID: 0}
+  FadedAlpha: 0.33
+  RetainShadows: 1
+  TargetPositionOffset: {x: 0, y: 0, z: 0}
+  FadeSpeed: 3
+  ObjectsBlockingView: []
 --- !u!1 &7100544807316593230
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CI.PowerConsole;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if DEVELOPMENT_BUILD 
+using CI.PowerConsole;
+#endif
 
 public class GameManager : MonoBehaviour
 {
@@ -84,44 +88,186 @@ public class GameManager : MonoBehaviour
     public bool hasCompletedTutorial = false;
     public bool hasCompletedCutscene = false;
 
+#if DEVELOPMENT_BUILD
+    private void StartDev()
+    { 
+        PowerConsole.Initialise();
+        PowerConsole.Log(LogLevel.Error, "Hello World");        
+        PowerConsole.RegisterCommand(new CustomCommand()
+        {
+            Command = "coin",
+            Description = "Add coins",
+            Args = new List<CommandArgument>()
+            {
+                new CommandArgument() { Name = "-n", Description = "Amount of coins to add" }
+            },
+            Callback = AddCoin
+        });
+        PowerConsole.RegisterCommand(new CustomCommand()
+        {
+            Command = "cw",
+            Description = "Change Weapon",
+            Args = new List<CommandArgument>()
+            {
+                new CommandArgument() { Name = "-w", Description = "Weapon to change" },
+                new CommandArgument() { Name = "-t", Description = "Type of weapon" }
+            },
+            Callback = ChangePlayer
+        });
+        PowerConsole.RegisterCommand(new CustomCommand()
+        {
+            Command = "tp",
+            Description = "Teleports player",
+            Args = new List<CommandArgument>()
+            {
+                new CommandArgument() { Name = "-x", Description = "x coords" },
+                new CommandArgument() { Name = "-y", Description = "y coords" }
+            },
+            Callback = TP
+        });
+        PowerConsole.RegisterCommand(new CustomCommand()
+        {
+            Command = "pos",
+            Description = "Shows Player Position",
+            Callback = CurrPos
+        });
+        
+    }
+
+    private void CurrPos(CommandCallback callback){
+        PowerConsole.Log(LogLevel.Information, "x : " + player.transform.position.x + " y : " + player.transform.position.y);
+    }
+
+    private void TP(CommandCallback callback){
+        var x = int.Parse(callback.Args["-x"]);
+        var y = int.Parse(callback.Args["-y"]);
+        player.rb.MovePosition(new Vector3(x, y, 0f));
+        PowerConsole.Log(LogLevel.Information, "TP!");  
+    }
+
+    private void AddCoin(CommandCallback callback){
+        var coinToAdd = int.Parse(callback.Args["-n"]);
+        coins += coinToAdd;
+        PowerConsole.Log(LogLevel.Information, "Coins added successfully!");  
+    }
+
+    private void ChangePlayer(CommandCallback callback){
+        Destroy(player.gameObject);
+        var wp = callback.Args["-w"].ToLower();
+        var tp = callback.Args["-t"].ToLower();
+
+        Vector3 spawnPoint = player.transform.position + new Vector3(0f, 3f, 0f);
+        Quaternion spawnRot = returnRotation;
+        Player.Weapon selectedWeapon = 
+                        wp == "katana" ? Player.Weapon.Katana : 
+                        wp == "demonic" ? Player.Weapon.DemonicSword :
+                        wp == "slayer" ? Player.Weapon.Slayer :
+                        wp == "fang" ? Player.Weapon.Fang :
+                        wp == "crescent" ? Player.Weapon.CrescentBlade : Player.Weapon.Katana;
+        Player.Type selectedType = wp == "katana" || wp == "crescent" ? Player.Type.Normal : Player.Type.Water;
+        if(wp != "katana" || wp != "crescent"){
+            if(tp == "fire"){
+                selectedType = Player.Type.Fire;
+            } 
+            else if(tp == "poison"){
+                selectedType = Player.Type.Poison;
+            }
+        }
+
+        GameObject newPlayer = selectedWeapon == Player.Weapon.Katana ? katana :
+           selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Water ? waterDemonicSword :
+           selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Fire ? fireDemonicSword :
+           selectedWeapon == Player.Weapon.DemonicSword && selectedType == Player.Type.Poison ? poisonDemonicSword :
+           selectedWeapon == Player.Weapon.Slayer && selectedType == Player.Type.Water ? waterSlayer :
+           selectedWeapon == Player.Weapon.Slayer && selectedType == Player.Type.Fire ? fireSlayer :
+           selectedWeapon == Player.Weapon.Slayer && selectedType == Player.Type.Poison ? poisonSlayer :
+           selectedWeapon == Player.Weapon.Fang && selectedType == Player.Type.Water ? waterFang :
+           selectedWeapon == Player.Weapon.Fang && selectedType == Player.Type.Fire ? fireFang :
+           selectedWeapon == Player.Weapon.Fang && selectedType == Player.Type.Poison ? poisonFang :
+           crescentBlade;
+               
+        GameObject instanciatedPlayer = Instantiate(newPlayer, spawnPoint, spawnRot);
+        FadeObjectBlockingObject fobo = instanciatedPlayer.GetComponent<FadeObjectBlockingObject>();
+        CamManager camManager = GameObject.Find("Camera Manager").GetComponent<CamManager>();
+        if (camManager != null && fobo != null)
+        {
+            fobo.Camera = camManager.mainCamera;
+            fobo.Enable();
+        }
+        
+        player = instanciatedPlayer.GetComponent<Player>();
+        attack = player.attack;
+        weapon = player.weapon;
+        type = player.type;
+        playerTransform = instanciatedPlayer.transform;
+
+        
+        MagmaFountain[] siba = (MagmaFountain[]) GameObject.FindObjectsByType(typeof(MagmaFountain), FindObjectsSortMode.None);
+
+        foreach (var jott in siba)
+        {
+            foreach (var bozzi in instanciatedPlayer.GetComponent<Player>().blade)
+                jott.magmaParticle.trigger.AddCollider(bozzi);
+
+            foreach (var jaji in instanciatedPlayer.GetComponent<Player>().handle)
+                jott.magmaParticle.trigger.AddCollider(jaji);
+        }
+        PowerConsole.Log(LogLevel.Information, "Weapon changed!");  
+    }
+
+#endif
 
     private void Start()
     {
         fdh = new FileDataHandler(Application.persistentDataPath, fileName);
+
+#if DEVELOPMENT_BUILD
+StartDev();
+#endif
     }
-    private void Awake() {
-        if(Instance == null) {
+    private void Awake()
+    {
+        if (Instance == null)
+        {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else {
+        else
+        {
             Destroy(gameObject);
         }
     }
 
-    public bool IsCollected(string id) {
+    public bool IsCollected(string id)
+    {
         return collectedItems.Contains(id);
     }
 
-    public void MarkCollected(string id) {
+    public void MarkCollected(string id)
+    {
         collectedItems.Add(id);
     }
 
-    public bool IsDestroyed(string id) {
+    public bool IsDestroyed(string id)
+    {
         return destroyedObjects.Contains(id);
     }
 
-    public void MarkDestroyed(string id) {
+    public void MarkDestroyed(string id)
+    {
         destroyedObjects.Add(id);
     }
 
-    public void SaveGame() {
+    public void SaveGame()
+    {
         if (playerTransform == null)
         {
             return;
         }
         SaveData data = new SaveData();
         data.hasCompletedTutorial = hasCompletedTutorial;
+        data.hasCompletedCutscene = hasCompletedCutscene;
+
         data.sanityCheck = 1;
         data.currentStage = currentStage;
         data.stage1entry = stage1entry;
@@ -194,7 +340,7 @@ public class GameManager : MonoBehaviour
         data.sanityCheck = 0;
         fdh.Save(data);
         currentStage = data.currentStage;
-
+        hasCompletedCutscene = data.hasCompletedCutscene;
         isLoadingGame = true;
         stage1entry = data.stage1entry;
         stage2entry = data.stage2entry;
@@ -214,7 +360,8 @@ public class GameManager : MonoBehaviour
         collectedItems = new HashSet<string>(data.collectedItems);
     }
 
-    public void ResetSave() {
+    public void ResetSave()
+    {
         playerTransform = null;
         destroyedObjects.Clear();
         collectedItems.Clear();
@@ -237,7 +384,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("mapload");
     }
 
-    void OnApplicationQuit() {
+    void OnApplicationQuit()
+    {
         //Debug.Log("Quitting");
         SaveGame();
     }

@@ -2534,6 +2534,7 @@ GameObject:
   - component: {fileID: 8426932838717767598}
   - component: {fileID: 4239729150867546845}
   - component: {fileID: 3442937004118307536}
+  - component: {fileID: 1260414490905758464}
   m_Layer: 10
   m_Name: Crescent Blade
   m_TagString: Untagged
@@ -2647,7 +2648,8 @@ MonoBehaviour:
   hitTimeCooldown: 1.5
   slashParticleRight: {fileID: 5692809559127008360}
   slashParticleLeft: {fileID: 3730284434635262188}
-  poisonBallDamage: 0
+  poisonBallDamage: 3
+  needleDamage: 2
   rb: {fileID: 197375767598578638}
   isGrounded: 0
 --- !u!114 &4239729150867546845
@@ -2674,6 +2676,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b842a2eb5178724ebfb94f620b6f820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1260414490905758464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8308978194400919345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77c44a48e2a0f246aad7b305b51ad74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  Target: {fileID: 152521095865367132}
+  Camera: {fileID: 0}
+  FadedAlpha: 0.33
+  RetainShadows: 1
+  TargetPositionOffset: {x: 0, y: 0, z: 0}
+  FadeSpeed: 3
+  ObjectsBlockingView: []
 --- !u!1 &8313932911542746851
 GameObject:
   m_ObjectHideFlags: 0

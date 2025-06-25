@@ -62,6 +62,8 @@ public class Player : MonoBehaviour
     public ParticleSystem slashParticleLeft;
     public int poisonBallDamage;
 
+    public int needleDamage;
+
     private float lastHitTime = -1f;
 
     public Rigidbody rb;
@@ -174,15 +176,6 @@ public class Player : MonoBehaviour
         if (!canMove)
         {
             return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            rb.MovePosition(new Vector3(213f, 130f, 0f));
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            rb.MovePosition(new Vector3(341f, 110f, 0f));
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -452,6 +445,10 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == 17)
         {
             gm.durability -= poisonBallDamage;
+        }
+        if (collision.gameObject.layer == 18)
+        {
+            gm.durability -= needleDamage;
         }
     }
 }

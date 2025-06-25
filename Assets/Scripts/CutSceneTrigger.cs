@@ -26,8 +26,11 @@ public class CutSceneTrigger : MonoBehaviour
     {
         if (other.gameObject.layer == 10)
         {
-            gm.player.StopMove();
-            cutsenes.SetActive(true);
+            if (!gm.hasCompletedCutscene)
+            { 
+                gm.player.StopMove();
+                cutsenes.SetActive(true);                
+            }
         }
     }
 

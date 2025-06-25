@@ -7,7 +7,7 @@ public class Blacksmith : MonoBehaviour
 {
     [Header("Menus")]
     public GameObject mainMenu;
-    
+
     public GameObject repairMenu;
     public GameObject repairSubmenu;
 
@@ -30,11 +30,11 @@ public class Blacksmith : MonoBehaviour
     public Button forgeButton;
     public Color toggleOffColor;
     public Color toggleOnColor;
-    public int katanaOreCost = 10;
-    public int demonicSwordOreCost = 11;
-    public int slayerOreCost = 12;
-    public int fangOreCost = 13;
-    public int crescentBladeOreCost = 14;
+    public int katanaOreCost = 1;
+    public int demonicSwordOreCost = 3;
+    public int slayerOreCost = 7;
+    public int fangOreCost = 5;
+    public int crescentBladeOreCost = 7;
 
     [Header("Change Weapon Weapon Game Objects")]
     public GameObject baseDemonicSword;
@@ -101,7 +101,8 @@ public class Blacksmith : MonoBehaviour
     private Player.Type selectedType;
 
 
-    public void Start() {
+    public void Start()
+    {
         GameManager gm = GameManager.Instance;
         repairCost = gm.repairPrice[(int)gm.currentBlacksmith];
         mainMenu.SetActive(true);
@@ -113,15 +114,18 @@ public class Blacksmith : MonoBehaviour
     }
 
 
-    public void OpenRepairMenu() {
+    public void OpenRepairMenu()
+    {
         mainMenu.SetActive(false);
         repairMenu.SetActive(true);
         repairSubmenu.SetActive(true);
         UpdateRepairMenu();
     }
 
-    public void Repair() {
-        if(GameManager.Instance.coins < repairCost){
+    public void Repair()
+    {
+        if (GameManager.Instance.coins < repairCost)
+        {
             return;
         }
         AudioManager.Instance.PlaySound(AudioManager.Instance.anvil);
@@ -131,11 +135,13 @@ public class Blacksmith : MonoBehaviour
         UpdateRepairMenu();
     }
 
-    public void UpdateRepairMenu() {
+    public void UpdateRepairMenu()
+    {
         maxDurability.text = GameManager.Instance.maxDurability.ToString();
         coinNeeded.text = repairCost.ToString();
 
-        if(GameManager.Instance.coins < repairCost) {
+        if (GameManager.Instance.coins < repairCost)
+        {
             insufficientFundTooltip.isActive = true;
             repairButton.interactable = false;
         }
@@ -147,7 +153,8 @@ public class Blacksmith : MonoBehaviour
     }
 
 
-    public void OpenChangeWeaponMenu() {
+    public void OpenChangeWeaponMenu()
+    {
         mainMenu.SetActive(false);
         changeWeaponMenu.SetActive(true);
         changeWeaponSubmenu.SetActive(true);
@@ -164,7 +171,8 @@ public class Blacksmith : MonoBehaviour
         crescentBlade.SetActive(blueprints[3] == 1);
     }
 
-    public void ShowWeaponModel(int i){
+    public void ShowWeaponModel(int i)
+    {
         baseDemonicSword.SetActive(i == 1);
         baseFang.SetActive(i == 2);
         baseSlayer.SetActive(i == 3);
@@ -179,9 +187,10 @@ public class Blacksmith : MonoBehaviour
         poisonSlayer.SetActive(i == 12);
         baseKatana.SetActive(i == 13);
         baseCrescentBlade.SetActive(i == 14);
-}
+    }
 
-    public void SelectBlueprint() {
+    public void SelectBlueprint()
+    {
         oreToggleGroup.SetAllTogglesOff(true);
 
         katanaText.color = toggleOffColor;
@@ -191,73 +200,86 @@ public class Blacksmith : MonoBehaviour
         crescentBladeText.color = toggleOffColor;
 
 
-        if(katanaToggle.isOn) {
+        if (katanaToggle.isOn)
+        {
             katanaText.color = toggleOnColor;
             oreAmountCost = katanaOreCost;
             selectedWeapon = Player.Weapon.Katana;
             ShowOreList();
             ShowWeaponModel(13);
         }
-        else if(demonicSwordToggle.isOn) {
+        else if (demonicSwordToggle.isOn)
+        {
             demonicSwordText.color = toggleOnColor;
             oreAmountCost = demonicSwordOreCost;
             selectedWeapon = Player.Weapon.DemonicSword;
             ShowOreList();
             ShowWeaponModel(1);
         }
-        else if(slayerToggle.isOn) {
+        else if (slayerToggle.isOn)
+        {
             slayerText.color = toggleOnColor;
             oreAmountCost = slayerOreCost;
             selectedWeapon = Player.Weapon.Slayer;
             ShowOreList();
             ShowWeaponModel(3);
         }
-        else if (fangToggle.isOn) {
+        else if (fangToggle.isOn)
+        {
             fangText.color = toggleOnColor;
             oreAmountCost = fangOreCost;
             selectedWeapon = Player.Weapon.Fang;
             ShowOreList();
             ShowWeaponModel(2);
         }
-        else if(crescentBladeToggle.isOn) {
+        else if (crescentBladeToggle.isOn)
+        {
             crescentBladeText.color = toggleOnColor;
             oreAmountCost = crescentBladeOreCost;
             selectedWeapon = Player.Weapon.CrescentBlade;
             ShowOreList();
             ShowWeaponModel(14);
         }
-        else {
+        else
+        {
             oreView.SetActive(false);
             ShowWeaponModel(0);
         }
     }
 
-    public void ShowOreList(){
+    public void ShowOreList()
+    {
         oreNeeded.text = oreAmountCost.ToString();
 
         int[] ores = GameManager.Instance.oreinventory;
         int waterOreAmount = ores[0];
         int fireOreAmount = ores[1];
         int poisonOreAmount = ores[2];
-        if(waterOreAmount > 0){ 
+        if (waterOreAmount > 0)
+        {
             waterOre.SetActive(true);
             waterOreNumber.text = waterOreAmount.ToString();
         }
-        else {
+        else
+        {
             waterOre.SetActive(false);
         }
-        if(fireOreAmount > 0){
+        if (fireOreAmount > 0)
+        {
             fireOre.SetActive(true);
             fireOreNumber.text = fireOreAmount.ToString();
         }
-        else {
+        else
+        {
             fireOre.SetActive(false);
         }
-        if(poisonOreAmount > 0){ 
+        if (poisonOreAmount > 0)
+        {
             poisonOre.SetActive(true);
-            poisonOreNumber.text=poisonOreAmount.ToString();
+            poisonOreNumber.text = poisonOreAmount.ToString();
         }
-        else {
+        else
+        {
             poisonOre.SetActive(false);
         }
 
@@ -265,7 +287,8 @@ public class Blacksmith : MonoBehaviour
         oreView.SetActive(true);
     }
 
-    public void SelectOre(){ 
+    public void SelectOre()
+    {
         waterOreLabel.color = toggleOffColor;
         waterOreNumber.color = toggleOffColor;
         fireOreLabel.color = toggleOffColor;
@@ -273,113 +296,152 @@ public class Blacksmith : MonoBehaviour
         poisonOreLabel.color = toggleOffColor;
         poisonOreNumber.color = toggleOffColor;
 
-        if(waterOreToggle.isOn){ 
+        if (waterOreToggle.isOn)
+        {
             waterOreLabel.color = toggleOnColor;
             waterOreNumber.color = toggleOnColor;
             selectedType = (selectedWeapon != Player.Weapon.Katana && selectedWeapon != Player.Weapon.CrescentBlade) ? Player.Type.Water : Player.Type.Normal;
             forgeButton.gameObject.SetActive(true);
-            if(GameManager.Instance.oreinventory[0] < oreAmountCost){
+            if (GameManager.Instance.oreinventory[0] < oreAmountCost)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = insufficientOreText;
             }
-            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon){
+            else if ((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else if(GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.type == Player.Type.Water){
+            else if (GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.type == Player.Type.Water)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else {
+            else
+            {
                 insufficientOreTooltip.isActive = false;
                 forgeButton.interactable = true;
-                int i = selectedWeapon == Player.Weapon.DemonicSword ? 4 : 
-                        selectedWeapon == Player.Weapon.Fang ? 5 : 
+                int i = selectedWeapon == Player.Weapon.DemonicSword ? 4 :
+                        selectedWeapon == Player.Weapon.Fang ? 5 :
                         selectedWeapon == Player.Weapon.Slayer ? 6 : 0;
-                if(i != 0){ 
+                if (i != 0)
+                {
                     ShowWeaponModel(i);
                 }
             }
         }
-        else if(fireOreToggle.isOn){
+        else if (fireOreToggle.isOn)
+        {
             fireOreLabel.color = toggleOnColor;
             fireOreNumber.color = toggleOnColor;
             selectedType = (selectedWeapon != Player.Weapon.Katana && selectedWeapon != Player.Weapon.CrescentBlade) ? Player.Type.Fire : Player.Type.Normal;
             forgeButton.gameObject.SetActive(true);
-            if(GameManager.Instance.oreinventory[1] < oreAmountCost) {
+            if (GameManager.Instance.oreinventory[1] < oreAmountCost)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = insufficientOreText;
             }
-            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon) {
+            else if ((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else if(GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.type == Player.Type.Fire) {
+            else if (GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.type == Player.Type.Fire)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else {
+            else
+            {
                 insufficientOreTooltip.isActive = false;
                 forgeButton.interactable = true;
                 int i = selectedWeapon == Player.Weapon.DemonicSword ? 7 :
                         selectedWeapon == Player.Weapon.Fang ? 8 :
                         selectedWeapon == Player.Weapon.Slayer ? 9 : 0;
-                if(i != 0) {
+                if (i != 0)
+                {
                     ShowWeaponModel(i);
                 }
             }
         }
-        else if(poisonOreToggle.isOn){
+        else if (poisonOreToggle.isOn)
+        {
             poisonOreLabel.color = toggleOnColor;
             poisonOreNumber.color = toggleOnColor;
             selectedType = (selectedWeapon != Player.Weapon.Katana && selectedWeapon != Player.Weapon.CrescentBlade) ? Player.Type.Poison : Player.Type.Normal;
             forgeButton.gameObject.SetActive(true);
-            if(GameManager.Instance.oreinventory[2] < oreAmountCost) {
+            if (GameManager.Instance.oreinventory[2] < oreAmountCost)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = insufficientOreText;
             }
-            else if((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon) {
+            else if ((selectedWeapon == Player.Weapon.Katana || selectedWeapon == Player.Weapon.CrescentBlade) && GameManager.Instance.weapon == selectedWeapon)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else if(GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.player.type == Player.Type.Poison) {
+            else if (GameManager.Instance.weapon == selectedWeapon && GameManager.Instance.player.type == Player.Type.Poison)
+            {
                 insufficientOreTooltip.isActive = true;
                 forgeButton.interactable = false;
                 oreErrorTooltipText.text = sameWeaponText;
             }
-            else {
+            else
+            {
                 insufficientOreTooltip.isActive = false;
                 forgeButton.interactable = true;
                 int i = selectedWeapon == Player.Weapon.DemonicSword ? 10 :
                         selectedWeapon == Player.Weapon.Fang ? 11 :
                         selectedWeapon == Player.Weapon.Slayer ? 12 : 0;
-                if(i != 0) {
+                if (i != 0)
+                {
                     ShowWeaponModel(i);
                 }
             }
         }
-        else {
+        else
+        {
             forgeButton.gameObject.SetActive(false);
             ShowWeaponModel(0);
         }
     }
 
-    public void Forge() {
+    public void Forge()
+    {
         AudioManager.Instance.PlaySound(AudioManager.Instance.forge);
         GameManager.Instance.playerChanged = true;
         GameManager.Instance.weapon = selectedWeapon;
+        int orecost = selectedWeapon == Player.Weapon.Katana ? 1 :
+                      selectedWeapon == Player.Weapon.DemonicSword ? 3 :
+                      selectedWeapon == Player.Weapon.Fang ? 5 :
+                      selectedWeapon == Player.Weapon.Slayer ? 7 :
+                      selectedWeapon == Player.Weapon.CrescentBlade ? 7 : 0;
+
         GameManager.Instance.type = selectedType;
+        if (selectedType == Player.Type.Water)
+        {
+            GameManager.Instance.oreinventory[0] -= orecost;
+        }
+        else if (selectedType == Player.Type.Water)
+        {
+            GameManager.Instance.oreinventory[1] -= orecost;
+        }
+        else if (selectedType == Player.Type.Poison)
+        {
+            GameManager.Instance.oreinventory[2] -= orecost;
+        }
     }
 
-    public void BackToMainMenu() {
+    public void BackToMainMenu()
+    {
         repairMenu.SetActive(false);
         repairSubmenu.SetActive(false);
         changeWeaponMenu.SetActive(false);
@@ -388,7 +450,8 @@ public class Blacksmith : MonoBehaviour
         ShowWeaponModel(0);
     }
 
-    public void ExitRoom() {
+    public void ExitRoom()
+    {
         AudioManager.Instance.MusicSource.Stop();
         AudioManager.Instance.MusicSource.volume = 1f;
         SceneManager.LoadScene("mapload");

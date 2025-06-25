@@ -155,6 +155,7 @@ MonoBehaviour:
   slashParticleRight: {fileID: 317557714636508463}
   slashParticleLeft: {fileID: 7460079527887092676}
   poisonBallDamage: 3
+  needleDamage: 2
   rb: {fileID: 7082539708058027269}
   isGrounded: 0
 --- !u!114 &2022390513970940274
@@ -216,13 +217,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   Target: {fileID: 635743633019333790}
   Camera: {fileID: 0}
   FadedAlpha: 0.33
   RetainShadows: 1
-  TargetPositionOffset: {x: 0, y: 1, z: 0}
-  FadeSpeed: 1
+  TargetPositionOffset: {x: 0, y: 0, z: 0}
+  FadeSpeed: 3
   ObjectsBlockingView: []
 --- !u!1 &344683846821344644
 GameObject:

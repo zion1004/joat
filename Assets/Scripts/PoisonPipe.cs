@@ -23,7 +23,7 @@ public class PoisonPipe : MonoBehaviour
         {
             lastPimpleTime = Time.time;
             GameObject ball = Instantiate(poisonBall, transform.position, Quaternion.identity);
-            ball.GetComponent<Rigidbody>().AddForce(ballSpeed, ForceMode.Impulse);
+            ball.GetComponent<Rigidbody>().AddForce(ballSpeed, ForceMode.VelocityChange);
         }
     }
 }
