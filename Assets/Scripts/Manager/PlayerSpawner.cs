@@ -47,15 +47,15 @@ public class PlayerSpawner : MonoBehaviour
         gm.playerTransform = instanciatedPlayer.transform;
         playercam.transform.position = spawnPoint;
         
-        MagmaFountain[] siba = (MagmaFountain[]) GameObject.FindObjectsByType(typeof(MagmaFountain), FindObjectsSortMode.None);
+        MagmaFountain[] mf = (MagmaFountain[]) GameObject.FindObjectsByType(typeof(MagmaFountain), FindObjectsSortMode.None);
 
-        foreach (var jott in siba)
+        foreach (var checker in mf)
         {
-            foreach (var bozzi in instanciatedPlayer.GetComponent<Player>().blade)
-                jott.magmaParticle.trigger.AddCollider(bozzi);
+            foreach (var bladeCheck in instanciatedPlayer.GetComponent<Player>().blade)
+                checker.magmaParticle.trigger.AddCollider(bladeCheck);
 
-            foreach (var jaji in instanciatedPlayer.GetComponent<Player>().handle)
-                jott.magmaParticle.trigger.AddCollider(jaji);
+            foreach (var handleCheck in instanciatedPlayer.GetComponent<Player>().handle)
+                checker.magmaParticle.trigger.AddCollider(handleCheck);
         }
 
 
